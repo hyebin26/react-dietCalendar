@@ -3,8 +3,13 @@ import { faHippo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./login.module.css";
 import Button from "../button/button";
+import { useHistory } from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({ authFirebase }) => {
+  const history = useHistory();
+  const clickGoogle = (e) => {
+    authFirebase.googleAuth().then((res) => history.push("/Home"));
+  };
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
@@ -16,7 +21,7 @@ const Login = (props) => {
           <img src="./img/1.jpg" alt="workout" />
         </div>
         <div className={styles.btnBox}>
-          <Button value={"Google"} />
+          <Button clickGoogle={clickGoogle} value={"Google"} />
           <Button value={"Github"} />
           <Button value={"Naver"} />
           <Button value={"Kakao"} />
