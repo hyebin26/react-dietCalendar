@@ -10,6 +10,9 @@ const Login = ({ authFirebase }) => {
   const clickGoogle = (e) => {
     authFirebase.googleAuth().then((res) => history.push("/Home"));
   };
+  const clickGithub = (e) => {
+    authFirebase.githubAuth().then((res) => console.log(res));
+  };
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
@@ -22,7 +25,7 @@ const Login = ({ authFirebase }) => {
         </div>
         <div className={styles.btnBox}>
           <Button clickGoogle={clickGoogle} value={"Google"} />
-          <Button value={"Github"} />
+          <Button clickGithub={clickGithub} value={"Github"} />
           <Button value={"Naver"} />
           <Button value={"Kakao"} />
         </div>
