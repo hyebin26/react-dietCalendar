@@ -1,0 +1,14 @@
+.btn {
+  padding: 0.4rem 0;
+  margin-bottom: 0.8rem;
+  background-color: rgb(240, 240, 240);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+  color: #5d5d5d;
+}
+
+.btn:hover {
+  background-color: rgb(200, 200, 255);
+}

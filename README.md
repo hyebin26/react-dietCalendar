@@ -3,7 +3,7 @@
 1. firebase 로그인 만들기
 
 일러스트레이션:
-<a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice - www.freepik.com</a>
+<a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
 
 참고:
 <a href='https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design'>https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design</a>

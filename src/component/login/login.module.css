@@ -1,0 +1,43 @@
+@value loginWidth,mainColor,borderColor from "../../common/styles.css";
+
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: mainColor;
+}
+
+.loginCotaniner {
+  width: loginWidth;
+  margin: 0 auto;
+  background-color: white;
+}
+.logo {
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: #c5d632;
+  color: #f7f7f7;
+}
+.logo svg {
+  padding-right: 0.2rem;
+  color: #f7f7f7;
+}
+
+.imgBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.imgBox img {
+  max-width: 25rem;
+}
+.btnBox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid borderColor;
+}
