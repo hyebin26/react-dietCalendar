@@ -1,3 +1,5 @@
+@value subColor,mainColor,pColor,font_white from "../../common/styles.css";
+
 .container {
   flex: 1 1 40%;
   padding: 3rem 1rem;
@@ -11,4 +13,11 @@
 .itemContainer {
   padding: 1rem 0;
 }
-
+.link {
+  display: block;
+  color: font_white;
+  margin-top: 1rem;
+  padding: 0.2rem 0;
+  background-color: mainColor;
+  text-decoration: none;
+}

@@ -1,6 +1,5 @@
-### 해야될것
-
-1. firebase 로그인 만들기
+### 이번에 한 것 
+1. 
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

@@ -1,22 +1,21 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./showDate.module.css";
-import MakeCalendar from "../../common/calendar";
 import MakeDate from "../makeDate/makeDate";
 
-const ShowDate = (props) => {
+const ShowDate = ({ onClickDate, MakeCalendar }) => {
   const monthRef = useRef();
   const yearRef = useRef();
 
   let countDay = [];
   const day = MakeCalendar.day;
 
-  const today = new Date();
-  let yy = today.getFullYear();
-  let mm = today.getMonth();
+  let yy = MakeCalendar.today.getFullYear();
+  let mm = MakeCalendar.today.getMonth();
+  let currentMonth = MakeCalendar.monList[mm];
   let firstDay = MakeCalendar.getFirstDay(yy, mm);
   let lastDay = MakeCalendar.getLastDay(yy, mm);
-
   let setFirstDay = firstDay.getDay();
+
   for (let j = 0; j < setFirstDay; j++) {
     countDay.push("");
   }
@@ -27,13 +26,14 @@ const ShowDate = (props) => {
   const loadDate = (fullDate) => {
     let yy = fullDate.getFullYear();
     let mm = fullDate.getMonth();
-
-    monthRef.current.innerText = MakeCalendar.monList[mm];
+    monthRef.current.innerText = currentMonth;
     yearRef.current.innerText = yy;
   };
+
   useEffect(() => {
-    loadDate(today);
+    loadDate(MakeCalendar.today);
   });
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -46,8 +46,13 @@ const ShowDate = (props) => {
         ))}
       </ul>
       <ul className={styles.makeDateContainer}>
-        {countDay.map((date) => (
-          <MakeDate date={date} day={day} />
+        {countDay.map((date, index) => (
+          <MakeDate
+            date={date}
+            onClickDate={onClickDate}
+            key={index}
+            currentMonth={currentMonth}
+          />
         ))}
       </ul>
     </div>

@@ -1,46 +1,45 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./clickDate.module.css";
 
-const ClickDate = ({ result }) => {
-  const [cal, setCal] = useState(0);
-  const [breakfastValue, setBreakfastValue] = useState(0);
-  const [lunchValue, setLunchValue] = useState(0);
-  const [dinnerValue, setDinnerValue] = useState(0);
-
-  console.log(breakfastValue);
+const ClickDate = ({
+  result,
+  clickedDate,
+  currentCal,
+  onChangeBreakfast,
+  onChangeDinner,
+  onChangeLunch,
+}) => {
   const changeBreakfast = (e) => {
-    setBreakfastValue(parseInt(e.target.value));
+    onChangeBreakfast(e.target.value);
   };
   const changeLunch = (e) => {
-    setLunchValue(parseInt(e.target.value));
+    onChangeLunch(e.target.value);
   };
   const changeDinner = (e) => {
-    setDinnerValue(parseInt(e.target.value));
+    onChangeDinner(e.target.value);
   };
-  useEffect(() => {
-    setCal(breakfastValue + lunchValue + dinnerValue);
-  });
+  useEffect(() => {});
   return (
     <div className={styles.container}>
-      <h2 className={styles.day}>February 22</h2>
+      <h2 className={styles.day}>February {clickedDate}</h2>
       <div className={styles.itemContainer}>
         <span>아침(cal): </span>
-        <input
-          type="number"
-          onChange={changeBreakfast}
-          value={breakfastValue}
-        />
+        <input type="number" onChange={changeBreakfast} />
       </div>
       <div className={styles.itemContainer}>
         <span>점심(cal): </span>
-        <input type="number" onChange={changeLunch} value={lunchValue} />
+        <input type="number" onChange={changeLunch} />
       </div>
       <div className={styles.itemContainer}>
         <span>저녁(cal): </span>
-        <input type="number" onChange={changeDinner} value={dinnerValue} />
+        <input type="number" onChange={changeDinner} />
       </div>
-      <h3>현재 칼로리: {cal}cal</h3>
+      <h3>현재 칼로리: {currentCal}cal</h3>
       <h3>하루 칼로리: {result}cal</h3>
+      <Link to="/Home" className={styles.link}>
+        하루 칼로리 설정하기
+      </Link>
     </div>
   );
 };
