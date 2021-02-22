@@ -1,7 +1,7 @@
 import firebase from "./firebase";
 
 class AuthFirebase {
-  googleAuth(target) {
+  googleAuth() {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(googleProvider);
   }

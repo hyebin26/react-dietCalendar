@@ -1,4 +1,4 @@
-@value loginWidth,mainColor,borderColor from "../../common/styles.css";
+@value loginWidth,mainColor,borderColor,subColor from "../../common/styles.css";
 
 .container {
   height: 100vh;
@@ -18,7 +18,7 @@
 .logo {
   padding: 0.5rem 0;
   text-align: center;
-  background-color: #c5d632;
+  background-color: subColor;
   color: #f7f7f7;
 }
 .logo svg {

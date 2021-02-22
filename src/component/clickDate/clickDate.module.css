@@ -1,0 +1,14 @@
+.container {
+  flex: 1 1 40%;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.dayNumber {
+  padding: 2rem 0;
+  font-size: 3rem;
+}
+.itemContainer {
+  padding: 1rem 0;
+}
+

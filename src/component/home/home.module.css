@@ -1,0 +1,42 @@
+@value loginWidth,pColor,mainColor from "../../common/styles.css";
+
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: mainColor;
+}
+.box {
+  max-width: loginWidth;
+  background-color: white;
+}
+.title {
+  padding-bottom: 0.5rem;
+}
+.box input {
+  outline: none;
+}
+.sign {
+  color: rgb(145, 144, 144);
+  font-size: 0.7rem;
+}
+.itemContainer {
+  padding-bottom: 0.5rem;
+}
+.conference {
+  color: rgb(145, 144, 144);
+  font-size: 0.7rem;
+}
+.btn {
+  padding: 0.4rem;
+  cursor: pointer;
+  border: none;
+  color: rgb(250, 250, 250);
+  background-color: rgb(35, 35, 35);
+}
+.itemForm {
+  padding: 1rem 0.5rem;
+}

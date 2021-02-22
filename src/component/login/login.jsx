@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./login.module.css";
 import Button from "../button/button";
 import { useHistory } from "react-router-dom";
+import Header from "../header/header";
+import Footer from "../footer/footer";
 
 const Login = ({ authFirebase }) => {
   const history = useHistory();
@@ -16,10 +18,7 @@ const Login = ({ authFirebase }) => {
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
-        <div className={styles.logo}>
-          <FontAwesomeIcon icon={faHippo} />
-          <span>Diet Calendar</span>
-        </div>
+        <Header />
         <div className={styles.imgBox}>
           <img src="./img/1.jpg" alt="workout" />
         </div>

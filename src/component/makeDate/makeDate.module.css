@@ -1,0 +1,12 @@
+.date {
+  width: 14.2857%;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.title {
+  cursor: pointer;
+}
+.cal {
+  font-size: 0.6rem;
+}

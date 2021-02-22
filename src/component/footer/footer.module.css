@@ -1,0 +1,8 @@
+@value subColor,font_white from "../../common/styles.css";
+
+.container {
+  text-align: center;
+  padding: 0.5rem 0;
+  background-color: subColor;
+  color: font_white;
+}

@@ -1,0 +1,21 @@
+.container {
+  flex: 1 1 60%;
+  padding: 1rem;
+}
+.title {
+  text-align: center;
+}
+
+.dayContainer {
+  display: flex;
+  padding: 1rem 0;
+  width: 100%;
+}
+.dayContainer li {
+  width: 14.2857%;
+  text-align: center;
+}
+.makeDateContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

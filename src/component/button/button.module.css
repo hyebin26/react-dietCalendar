@@ -1,3 +1,5 @@
+@value pColor from "../../common/styles.css";
+
 .btn {
   padding: 0.4rem 0;
   margin-bottom: 0.8rem;
@@ -6,7 +8,7 @@
   cursor: pointer;
   outline: none;
   transition: 0.3s;
-  color: #5d5d5d;
+  color: pColor;
 }
 
 .btn:hover {

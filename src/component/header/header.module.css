@@ -1,0 +1,12 @@
+@value subColor,font_white from "../../common/styles.css";
+
+.logo {
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: subColor;
+  color: font_white;
+}
+.logo svg {
+  padding-right: 0.2rem;
+  color: font_white;
+}
