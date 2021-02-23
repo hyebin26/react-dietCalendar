@@ -1,3 +1,5 @@
+@value mainColor,subColor from "../../common/styles.css";
+
 .date {
   width: 14.2857%;
   margin: 0.7rem 0;
@@ -9,7 +11,11 @@
   display: block;
   text-decoration: none;
   color: black;
+  border-radius: 50%;
 }
 .cal {
   font-size: 0.6rem;
+}
+.today {
+  color: #03bdb0;
 }

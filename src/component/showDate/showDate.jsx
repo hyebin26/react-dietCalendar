@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./showDate.module.css";
 import MakeDate from "../makeDate/makeDate";
 
-const ShowDate = ({ onClickDate, MakeCalendar }) => {
+const ShowDate = ({ onClickDate, MakeCalendar, result, currentCal }) => {
   const monthRef = useRef();
   const yearRef = useRef();
 
@@ -23,22 +23,11 @@ const ShowDate = ({ onClickDate, MakeCalendar }) => {
     countDay.push(i);
   }
 
-  const loadDate = (fullDate) => {
-    let yy = fullDate.getFullYear();
-    let mm = fullDate.getMonth();
-    monthRef.current.innerText = currentMonth;
-    yearRef.current.innerText = yy;
-  };
-
-  useEffect(() => {
-    loadDate(MakeCalendar.today);
-  });
-
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <span ref={monthRef}></span>
-        <span ref={yearRef}></span>
+        <span ref={monthRef}>{currentMonth}</span>
+        <span ref={yearRef}>{yy}</span>
       </div>
       <ul className={styles.dayContainer}>
         {day.map((item) => (
@@ -52,6 +41,8 @@ const ShowDate = ({ onClickDate, MakeCalendar }) => {
             onClickDate={onClickDate}
             key={index}
             currentMonth={currentMonth}
+            result={result}
+            currentCal={currentCal}
           />
         ))}
       </ul>

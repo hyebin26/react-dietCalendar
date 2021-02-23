@@ -9,8 +9,9 @@ import MakeCalendar from "../../common/calendar";
 
 const Calendar = (props) => {
   const location = useLocation();
-  const result = location.state.result;
-  const currentMonth = MakeCalendar.today.getMonth();
+  const result =
+    location.state.result === undefined ? "" : location.state.result;
+  const currentMonth = location.state.currentMonth;
   const [clickedDate, setClickedDate] = useState();
   const [currentCal, setCurrentCal] = useState(0);
   const [breakfastValue, setBreakfastValue] = useState(0);
@@ -30,6 +31,14 @@ const Calendar = (props) => {
     setDinnerValue(parseInt(cal));
   };
 
+  const countDay = [];
+  let yy = MakeCalendar.today.getFullYear();
+  let mm = MakeCalendar.today.getMonth();
+  let lastDay = MakeCalendar.getLastDay(yy, mm);
+  for (let i = 1; i < lastDay.getDate() + 1; i++) {
+    countDay.push(i);
+  }
+
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
   });
@@ -44,11 +53,14 @@ const Calendar = (props) => {
           onChangeBreakfast={onChangeBreakfast}
           onChangeLunch={onChangeLunch}
           onChangeDinner={onChangeDinner}
+          currentMonth={currentMonth}
+          MakeCalendar={MakeCalendar}
         />
         <ShowDate
           onClickDate={onClickDate}
           MakeCalendar={MakeCalendar}
           result={result}
+          currentCal={currentCal}
         />
       </div>
       <Footer />

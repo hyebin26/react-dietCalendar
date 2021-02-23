@@ -9,7 +9,16 @@ const ClickDate = ({
   onChangeBreakfast,
   onChangeDinner,
   onChangeLunch,
+  currentMonth,
+  MakeCalendar,
 }) => {
+  if (currentMonth === undefined) {
+    let mm = MakeCalendar.today.getMonth();
+    currentMonth = MakeCalendar.monList[mm];
+  }
+  if (clickedDate === undefined) {
+    clickedDate = MakeCalendar.today.getDate();
+  }
   const changeBreakfast = (e) => {
     onChangeBreakfast(e.target.value);
   };
@@ -22,7 +31,9 @@ const ClickDate = ({
   useEffect(() => {});
   return (
     <div className={styles.container}>
-      <h2 className={styles.day}>February {clickedDate}</h2>
+      <h2 className={styles.day}>
+        {currentMonth} {clickedDate}
+      </h2>
       <div className={styles.itemContainer}>
         <span>아침(cal): </span>
         <input type="number" onChange={changeBreakfast} />

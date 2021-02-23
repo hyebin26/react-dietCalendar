@@ -11,12 +11,8 @@ function App({ authFirebase }) {
         <Route exact path="/">
           <Login authFirebase={authFirebase} />
         </Route>
-        <Route path="/Home">
-          <Home />
-        </Route>
-        <Route path="/Calendar">
-          <Calendar />
-        </Route>
+        <Route path="/Home" component={Home} />
+        <Route path="/Calendar" component={Calendar} />
       </Switch>
     </BrowserRouter>
   );
