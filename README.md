@@ -1,6 +1,7 @@
 ### 이번에 한 것
 
-1. MakeDate에서 오늘에 색 추가
+1. 네이버로그인창만 구현
+2. 다음 로그인 구현 
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

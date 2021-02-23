@@ -1,20 +1,44 @@
-import React from "react";
-import { faHippo } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect } from "react";
 import styles from "./login.module.css";
 import Button from "../button/button";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
-import Footer from "../footer/footer";
 
-const Login = ({ authFirebase }) => {
+const Login = ({ authFirebase, authNaver, authKakao }) => {
   const history = useHistory();
-  const clickGoogle = (e) => {
-    authFirebase.googleAuth().then((res) => history.push("/Home"));
+  const location = useLocation();
+  const goToHome = () => {
+    history.push("/Home");
   };
-  const clickGithub = (e) => {
-    authFirebase.githubAuth().then((res) => console.log(res));
+  const clickGoogle = () => {
+    authFirebase.googleAuth().then((res) => goToHome());
   };
+  const clickGithub = () => {
+    authFirebase.githubAuth().then((res) => goToHome());
+  };
+  const clickKakao = () => {
+    authKakao.loginKakao(goToHome);
+  };
+
+  const getNaverToken = async () => {
+    if (!location.hash) return;
+    const token = location.hash.split("=")[1].split("&")[0];
+
+    await fetch("/User/Naver", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((resjson) => goToHome(resjson));
+  };
+
+  useEffect(() => {
+    authNaver.initializeNaverLogin();
+    getNaverToken();
+  }, []);
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
@@ -25,8 +49,8 @@ const Login = ({ authFirebase }) => {
         <div className={styles.btnBox}>
           <Button clickGoogle={clickGoogle} value={"Google"} />
           <Button clickGithub={clickGithub} value={"Github"} />
-          <Button value={"Naver"} />
-          <Button value={"Kakao"} />
+          <button onClick={clickKakao}>Kakao</button>
+          <div id="naverIdLogin"></div>
         </div>
       </div>
     </section>
