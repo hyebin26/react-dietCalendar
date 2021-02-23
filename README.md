@@ -1,7 +1,6 @@
 ### 이번에 한 것
 
-1. add env 
-2. delete button.jsx
+1. 다음달, 전달 버튼추가
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

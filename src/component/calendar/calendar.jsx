@@ -11,7 +11,7 @@ const Calendar = (props) => {
   const location = useLocation();
   const result =
     location.state.result === undefined ? "" : location.state.result;
-  const currentMonth = location.state.currentMonth;
+
   const [clickedDate, setClickedDate] = useState();
   const [currentCal, setCurrentCal] = useState(0);
   const [breakfastValue, setBreakfastValue] = useState(0);
@@ -53,7 +53,6 @@ const Calendar = (props) => {
           onChangeBreakfast={onChangeBreakfast}
           onChangeLunch={onChangeLunch}
           onChangeDinner={onChangeDinner}
-          currentMonth={currentMonth}
           MakeCalendar={MakeCalendar}
         />
         <ShowDate

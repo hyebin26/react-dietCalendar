@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./clickDate.module.css";
 
 const ClickDate = ({
@@ -9,12 +9,13 @@ const ClickDate = ({
   onChangeBreakfast,
   onChangeDinner,
   onChangeLunch,
-  currentMonth,
   MakeCalendar,
 }) => {
-  if (currentMonth === undefined) {
+  const location = useLocation();
+  let { stateCurrentMonth } = location.state;
+  if (stateCurrentMonth === undefined) {
     let mm = MakeCalendar.today.getMonth();
-    currentMonth = MakeCalendar.monList[mm];
+    stateCurrentMonth = MakeCalendar.monList[mm];
   }
   if (clickedDate === undefined) {
     clickedDate = MakeCalendar.today.getDate();
@@ -28,11 +29,10 @@ const ClickDate = ({
   const changeDinner = (e) => {
     onChangeDinner(e.target.value);
   };
-  useEffect(() => {});
   return (
     <div className={styles.container}>
       <h2 className={styles.day}>
-        {currentMonth} {clickedDate}
+        {stateCurrentMonth} {clickedDate}
       </h2>
       <div className={styles.itemContainer}>
         <span>아침(cal): </span>
