@@ -10,7 +10,7 @@ function App({ authFirebase, authNaver, authKakao }) {
       <Switch>
         <Route exact path="/">
           <Login
-          authFirebase={authFirebase}
+            authFirebase={authFirebase}
             authNaver={authNaver}
             authKakao={authKakao}
           />

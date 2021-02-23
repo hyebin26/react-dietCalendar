@@ -4,7 +4,7 @@ class AuthKakao {
   loginKakao(goToHome) {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch("http://localhost:3000", {
+        fetch(process.env.KAKAO_URL, {
           method: "POST",
           body: JSON.stringify({
             access_token: authObj.access_token,

@@ -1,7 +1,7 @@
 ### 이번에 한 것
 
-1. 네이버로그인창만 구현
-2. 다음 로그인 구현 
+1. add env 
+2. delete button.jsx
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

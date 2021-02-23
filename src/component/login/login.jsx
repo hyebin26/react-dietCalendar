@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import styles from "./login.module.css";
-import Button from "../button/button";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
 
+console.log(process.env.REACT_APP_API);
 const Login = ({ authFirebase, authNaver, authKakao }) => {
   const history = useHistory();
   const location = useLocation();
@@ -47,9 +47,15 @@ const Login = ({ authFirebase, authNaver, authKakao }) => {
           <img src="./img/1.jpg" alt="workout" />
         </div>
         <div className={styles.btnBox}>
-          <Button clickGoogle={clickGoogle} value={"Google"} />
-          <Button clickGithub={clickGithub} value={"Github"} />
-          <button onClick={clickKakao}>Kakao</button>
+          <button onClick={clickGoogle} className={styles.btn}>
+            Google
+          </button>
+          <button onClick={clickGithub} className={styles.btn}>
+            Github
+          </button>
+          <button onClick={clickKakao} className={styles.btn}>
+            Kakao
+          </button>
           <div id="naverIdLogin"></div>
         </div>
       </div>
