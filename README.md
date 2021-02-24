@@ -1,7 +1,7 @@
 ### 이번에 한 것
 
-1. add realtime base 
-2. add sign out btn
+1. 오늘 날짜 마크하기 수정 
+
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

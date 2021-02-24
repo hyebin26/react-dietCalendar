@@ -10,8 +10,10 @@ const MakeDate = ({
   result,
   currentCal,
   stateClickDate,
+  todayMonth,
 }) => {
-  const today = new Date().getDate();
+  const markToday =
+    stateCurrentMonth === todayMonth ? new Date().getDate() : false;
   return (
     <li className={styles.date}>
       <Link
@@ -19,7 +21,7 @@ const MakeDate = ({
           pathname: `/Calendar`,
           state: { result, stateCurrentMonth, date },
         }}
-        className={cx(styles.title, today === date ? styles.today : false)}
+        className={cx(styles.title, markToday === date ? styles.today : false)}
         onClick={onClickDate}
       >
         {date}

@@ -15,6 +15,7 @@ const ShowDate = ({
   const day = MakeCalendar.day;
   let yy = MakeCalendar.today.getFullYear();
   let mm = MakeCalendar.today.getMonth();
+  let todayMonth = MakeCalendar.monList[mm];
   let currentMonth = MakeCalendar.monList[mm];
   let firstDay = MakeCalendar.getFirstDay(yy, mm);
   let lastDay = MakeCalendar.getLastDay(yy, mm);
@@ -98,6 +99,7 @@ const ShowDate = ({
               stateCurrentMonth={stateCurrentMonth}
               result={result}
               currentCal={currentCal}
+              todayMonth={todayMonth}
             />
           );
         })}
