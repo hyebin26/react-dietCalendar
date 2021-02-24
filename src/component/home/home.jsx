@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import styles from "./home.module.css";
 
-const Home = ({ authFirebase }) => {
+const Home = ({ auth }) => {
   const heightRef = useRef();
   const weightRef = useRef();
   const signRef = useRef();
@@ -47,7 +47,7 @@ const Home = ({ authFirebase }) => {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <Header authFirebase={authFirebase} />
+        <Header auth={auth} />
         <form className={styles.itemForm}>
           <h3 className={styles.title}>하루 권장 칼로리 계산하기</h3>
           <div className={styles.itemContainer}>

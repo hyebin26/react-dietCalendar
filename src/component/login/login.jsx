@@ -3,10 +3,11 @@ import styles from "./login.module.css";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
 
-const Login = ({ authFirebase, authNaver, authKakao }) => {
+const Login = ({ auth }) => {
   const history = useHistory();
   const location = useLocation();
   const naverRef = useRef();
+
   const goToHome = (userId) => {
     history.push({
       pathname: "/Home",
@@ -14,13 +15,13 @@ const Login = ({ authFirebase, authNaver, authKakao }) => {
     });
   };
   const clickGoogle = () => {
-    authFirebase.googleAuth().then((res) => goToHome());
+    auth.googleAuth().then((res) => goToHome(res.user.uid));
   };
   const clickGithub = () => {
-    authFirebase.githubAuth().then((res) => goToHome());
+    auth.githubAuth().then((res) => goToHome(res.user.uid));
   };
   const clickKakao = () => {
-    authKakao.loginKakao(goToHome, "hello");
+    auth.loginKakao(goToHome);
   };
   const clickNaver = (e) => {
     e.preventDefault();
@@ -43,15 +44,15 @@ const Login = ({ authFirebase, authNaver, authKakao }) => {
   };
 
   useEffect(() => {
-    authNaver.initializeNaverLogin();
+    auth.initializeNaverLogin();
     getNaverToken();
   }, []);
 
   useEffect(() => {
-    authFirebase.onAuthChange((user) => {
+    auth.onAuthChange((user) => {
       user && goToHome(user.uid);
     });
-  });
+  }, [auth]);
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>

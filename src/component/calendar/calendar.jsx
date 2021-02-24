@@ -7,7 +7,7 @@ import styles from "./calendar.module.css";
 import ShowDate from "../showDate/showDate";
 import MakeCalendar from "../../common/calendar";
 
-const Calendar = ({ repository, authFirebase }) => {
+const Calendar = ({ repository, auth }) => {
   const location = useLocation();
   const result =
     location.state.result === undefined ? "" : location.state.result;
@@ -45,7 +45,7 @@ const Calendar = ({ repository, authFirebase }) => {
   });
   return (
     <section className={styles.container}>
-      <Header authFirebase={authFirebase} />
+      <Header auth={auth} />
       <div className={styles.dateContainer}>
         <ClickDate
           result={result}

@@ -1,6 +1,7 @@
 ### 이번에 한 것
 
-1. 오늘 날짜 마크하기 수정 
+1. auth 하나로 묶기 
+2. kakao login repository 수정 
 
 
 일러스트레이션:

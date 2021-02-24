@@ -4,23 +4,18 @@ import Login from "./component/login/login";
 import Home from "./component/home/home";
 import Calendar from "./component/calendar/calendar";
 
-function App({ authFirebase, authNaver, authKakao, repository }) {
+function App({ auth, repository }) {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Login
-            authFirebase={authFirebase}
-            authNaver={authNaver}
-            authKakao={authKakao}
-            repository={repository}
-          />
+          <Login auth={auth} repository={repository} />
         </Route>
         <Route path="/Home">
-          <Home authFirebase={authFirebase} />
+          <Home auth={auth} />
         </Route>
         <Route path="/Calendar">
-          <Calendar repository={repository} authFirebase={authFirebase} />
+          <Calendar repository={repository} auth={auth} />
         </Route>
       </Switch>
     </BrowserRouter>
