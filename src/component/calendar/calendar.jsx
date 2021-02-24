@@ -7,7 +7,7 @@ import styles from "./calendar.module.css";
 import ShowDate from "../showDate/showDate";
 import MakeCalendar from "../../common/calendar";
 
-const Calendar = (props) => {
+const Calendar = ({ repository, authFirebase }) => {
   const location = useLocation();
   const result =
     location.state.result === undefined ? "" : location.state.result;
@@ -17,6 +17,15 @@ const Calendar = (props) => {
   const [breakfastValue, setBreakfastValue] = useState(0);
   const [lunchValue, setLunchValue] = useState(0);
   const [dinnerValue, setDinnerValue] = useState(0);
+
+  const [stateClickDate, setStateClickDate] = useState([
+    {
+      date: 3,
+      month: "2",
+      currentCal: "500",
+    },
+    { date: 4, month: "2", currentCal: "900" },
+  ]);
 
   const onClickDate = (e) => {
     setClickedDate(e.target.innerText);
@@ -31,20 +40,12 @@ const Calendar = (props) => {
     setDinnerValue(parseInt(cal));
   };
 
-  const countDay = [];
-  let yy = MakeCalendar.today.getFullYear();
-  let mm = MakeCalendar.today.getMonth();
-  let lastDay = MakeCalendar.getLastDay(yy, mm);
-  for (let i = 1; i < lastDay.getDate() + 1; i++) {
-    countDay.push(i);
-  }
-
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
   });
   return (
     <section className={styles.container}>
-      <Header />
+      <Header authFirebase={authFirebase} />
       <div className={styles.dateContainer}>
         <ClickDate
           result={result}
@@ -60,6 +61,7 @@ const Calendar = (props) => {
           MakeCalendar={MakeCalendar}
           result={result}
           currentCal={currentCal}
+          stateClickDate={stateClickDate}
         />
       </div>
       <Footer />

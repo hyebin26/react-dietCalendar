@@ -9,6 +9,14 @@ class AuthFirebase {
     const githubProvider = new firebase.auth.GithubAuthProvider();
     return firebase.auth().signInWithPopup(githubProvider);
   }
+  onAuthChange(goToHome) {
+    firebase.auth().onAuthStateChanged((user) => {
+      goToHome(user);
+    });
+  }
+  signOut() {
+    return firebase.auth().signOut();
+  }
 }
 
 export default AuthFirebase;

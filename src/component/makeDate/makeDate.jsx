@@ -9,8 +9,8 @@ const MakeDate = ({
   stateCurrentMonth,
   result,
   currentCal,
+  stateClickDate,
 }) => {
-  console.log(stateCurrentMonth);
   const today = new Date().getDate();
   return (
     <li className={styles.date}>

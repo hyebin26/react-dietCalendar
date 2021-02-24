@@ -4,7 +4,13 @@ import MakeDate from "../makeDate/makeDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const ShowDate = ({ onClickDate, MakeCalendar, result, currentCal }) => {
+const ShowDate = ({
+  onClickDate,
+  MakeCalendar,
+  result,
+  currentCal,
+  stateClickDate,
+}) => {
   const countDay = [];
   const day = MakeCalendar.day;
   let yy = MakeCalendar.today.getFullYear();
@@ -17,14 +23,6 @@ const ShowDate = ({ onClickDate, MakeCalendar, result, currentCal }) => {
   const [stateCountDay, setStateCountDay] = useState(countDay);
   const [stateCurrentMonth, setStateCurrentMonth] = useState(currentMonth);
   const [stateYear, setStateYear] = useState(yy);
-  const [stateClickDate, setStateClickDate] = useState([
-    {
-      date: stateCountDay,
-      month: stateCurrentMonth,
-      currentCal: 0,
-      defaultCal: 1800,
-    },
-  ]);
 
   const clickPrevMonth = () => {
     let countDay = [];
@@ -91,16 +89,18 @@ const ShowDate = ({ onClickDate, MakeCalendar, result, currentCal }) => {
         ))}
       </ul>
       <ul className={styles.makeDateContainer}>
-        {stateCountDay.map((date, index) => (
-          <MakeDate
-            date={date}
-            onClickDate={onClickDate}
-            key={index}
-            stateCurrentMonth={stateCurrentMonth}
-            result={result}
-            currentCal={currentCal}
-          />
-        ))}
+        {stateCountDay.map((date, index) => {
+          return (
+            <MakeDate
+              date={date}
+              onClickDate={onClickDate}
+              key={index}
+              stateCurrentMonth={stateCurrentMonth}
+              result={result}
+              currentCal={currentCal}
+            />
+          );
+        })}
       </ul>
     </div>
   );

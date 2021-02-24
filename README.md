@@ -1,6 +1,7 @@
 ### 이번에 한 것
 
-1. 다음달, 전달 버튼추가
+1. add realtime base 
+2. add sign out btn
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

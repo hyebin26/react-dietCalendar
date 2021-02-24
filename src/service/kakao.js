@@ -1,17 +1,14 @@
+import Repository from "./repository";
 const { Kakao } = window;
 
+const repository = new Repository();
+
 class AuthKakao {
-  loginKakao(goToHome) {
+  loginKakao(goToHome, date) {
     Kakao.Auth.login({
       success: function (authObj) {
-        fetch(process.env.KAKAO_URL, {
-          method: "POST",
-          body: JSON.stringify({
-            access_token: authObj.access_token,
-          }),
-        }) //
-          .then((res) => res.json())
-          .then((resjson) => goToHome());
+        repository.firebaseRepository(authObj.access_token, date);
+        goToHome();
       },
       fail: function (err) {
         console.log(err);

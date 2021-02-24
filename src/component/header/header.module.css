@@ -1,12 +1,25 @@
-@value subColor,font_white from "../../common/styles.css";
+@value mainColor,subColor,font_white from "../../common/styles.css";
 
 .logo {
   padding: 0.5rem 0;
   text-align: center;
   background-color: subColor;
   color: font_white;
+  position: relative;
 }
 .logo svg {
   padding-right: 0.2rem;
   color: font_white;
+}
+
+.singOutBtn {
+  position: absolute;
+  right: 10%;
+  border: none;
+  background-color: mainColor;
+  color: font_white;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  outline: none;
 }

@@ -13,6 +13,7 @@ const ClickDate = ({
 }) => {
   const location = useLocation();
   let { stateCurrentMonth } = location.state;
+
   if (stateCurrentMonth === undefined) {
     let mm = MakeCalendar.today.getMonth();
     stateCurrentMonth = MakeCalendar.monList[mm];
@@ -20,6 +21,7 @@ const ClickDate = ({
   if (clickedDate === undefined) {
     clickedDate = MakeCalendar.today.getDate();
   }
+
   const changeBreakfast = (e) => {
     onChangeBreakfast(e.target.value);
   };
@@ -29,6 +31,7 @@ const ClickDate = ({
   const changeDinner = (e) => {
     onChangeDinner(e.target.value);
   };
+
   return (
     <div className={styles.container}>
       <h2 className={styles.day}>
