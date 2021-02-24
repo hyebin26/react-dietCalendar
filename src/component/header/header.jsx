@@ -4,7 +4,7 @@ import { faHippo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 
-const Header = ({ authFirebase }) => {
+const Header = ({ authFirebase, authKakao }) => {
   const history = useHistory();
   const onClickSignOut = () => {
     authFirebase
@@ -14,9 +14,12 @@ const Header = ({ authFirebase }) => {
       })
       .catch((err) => console.log(err));
   };
+  // const onClickKakao = () => {
+  //   authKakao.logOutKakao();
+  // };
   return (
     <div className={styles.logo}>
-      {authFirebase && (
+      {onClickSignOut && (
         <button className={styles.singOutBtn} onClick={onClickSignOut}>
           Sign Out
         </button>

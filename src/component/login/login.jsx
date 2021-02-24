@@ -3,7 +3,7 @@ import styles from "./login.module.css";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
 
-const Login = ({ authFirebase, authNaver, authKakao, repository }) => {
+const Login = ({ authFirebase, authNaver, authKakao }) => {
   const history = useHistory();
   const location = useLocation();
   const naverRef = useRef();
