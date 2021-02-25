@@ -14,9 +14,6 @@ const Header = ({ auth }) => {
       })
       .catch((err) => console.log(err));
   };
-  // const onClickKakao = () => {
-  //   authKakao.logOutKakao();
-  // };
   return (
     <div className={styles.logo}>
       {auth && (

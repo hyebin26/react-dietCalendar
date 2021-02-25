@@ -31,14 +31,12 @@ const MakeCalendar = {
     let d = new Date();
     d.setDate(1);
     d.setMonth(++this.monForChange);
-    this.activeDate = d;
     return d;
   },
   prevMonth: function () {
     let d = new Date();
     d.setDate(1);
     d.setMonth(--this.monForChange);
-    this.activeDate = d;
     return d;
   },
 };

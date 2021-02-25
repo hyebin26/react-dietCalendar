@@ -18,15 +18,6 @@ const Calendar = ({ repository, auth }) => {
   const [lunchValue, setLunchValue] = useState(0);
   const [dinnerValue, setDinnerValue] = useState(0);
 
-  const [stateClickDate, setStateClickDate] = useState([
-    {
-      date: 3,
-      month: "2",
-      currentCal: "500",
-    },
-    { date: 4, month: "2", currentCal: "900" },
-  ]);
-
   const onClickDate = (e) => {
     setClickedDate(e.target.innerText);
   };
@@ -61,7 +52,6 @@ const Calendar = ({ repository, auth }) => {
           MakeCalendar={MakeCalendar}
           result={result}
           currentCal={currentCal}
-          stateClickDate={stateClickDate}
         />
       </div>
       <Footer />

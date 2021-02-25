@@ -1,16 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./showDate.module.css";
 import MakeDate from "../makeDate/makeDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const ShowDate = ({
-  onClickDate,
-  MakeCalendar,
-  result,
-  currentCal,
-  stateClickDate,
-}) => {
+const ShowDate = ({ onClickDate, MakeCalendar, result, currentCal }) => {
   const countDay = [];
   const day = MakeCalendar.day;
   let yy = MakeCalendar.today.getFullYear();
@@ -36,12 +30,8 @@ const ShowDate = ({
     let lastDay = MakeCalendar.getLastDay(yy, mm);
     let setFirstDay = firstDay.getDay();
 
-    for (let j = 0; j < setFirstDay; j++) {
-      countDay.push("");
-    }
-    for (let i = 1; i < lastDay.getDate() + 1; i++) {
-      countDay.push(i);
-    }
+    roof(countDay, setFirstDay, lastDay);
+
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
@@ -58,23 +48,22 @@ const ShowDate = ({
     let lastDay = MakeCalendar.getLastDay(yy, mm);
     let setFirstDay = firstDay.getDay();
 
-    for (let j = 0; j < setFirstDay; j++) {
-      countDay.push("");
-    }
-    for (let i = 1; i < lastDay.getDate() + 1; i++) {
-      countDay.push(i);
-    }
+    roof(countDay, setFirstDay, lastDay);
+
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
   };
 
-  for (let j = 0; j < setFirstDay; j++) {
-    countDay.push("");
-  }
-  for (let i = 1; i < lastDay.getDate() + 1; i++) {
-    countDay.push(i);
-  }
+  const roof = (_array, _firstDay, _lastDay) => {
+    for (let j = 0; j < _firstDay; j++) {
+      _array.push("");
+    }
+    for (let i = 1; i < _lastDay.getDate() + 1; i++) {
+      _array.push(i);
+    }
+  };
+  roof(countDay, setFirstDay, lastDay);
 
   return (
     <div className={styles.container}>
