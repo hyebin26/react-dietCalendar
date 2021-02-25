@@ -8,10 +8,11 @@ const Home = ({ auth }) => {
   const heightRef = useRef();
   const weightRef = useRef();
   const signRef = useRef();
+  const resultRef = useRef();
   const history = useHistory();
 
-  const [height, setHeight] = useState("");
-  const [commonWeight, setCommoonWeight] = useState();
+  const [height, setHeight] = useState();
+  const [commonWeight, setCommonWeight] = useState();
   const [sign, setSign] = useState();
   const [weight, setWeight] = useState();
   const [result, setResult] = useState();
@@ -20,10 +21,15 @@ const Home = ({ auth }) => {
     heightRef.current.innerText = `표준 체중은 ${
       (e.target.value - 100) * 0.9
     } 입니다.`;
-    setCommoonWeight((e.target.value - 100) * 0.9);
+    setCommonWeight((e.target.value - 100) * 0.9);
     setHeight(e.target.value);
   };
   const handleWeight = (e) => {
+    console.log(commonWeight);
+    if (commonWeight == undefined) {
+      weightRef.current.innerText = "키를 먼저 입력해주세요 !";
+      return false;
+    }
     setWeight(e.target.value);
     weightRef.current.innerText = `비만도는 ${
       ((e.target.value - commonWeight) / e.target.value) * 100
@@ -39,6 +45,11 @@ const Home = ({ auth }) => {
     setResult(e.target.value);
   };
   const clickSubmit = (e) => {
+    e.preventDefault();
+    if (result == undefined) {
+      resultRef.current.innerText = "하루 칼로리를 입력해주세요 !";
+      return false;
+    }
     history.push({
       pathname: "/Calendar",
       state: { result: result },
@@ -104,6 +115,7 @@ const Home = ({ auth }) => {
               급격한 다이어트는 건강의 무리가 되므로 보통 일주일에 0.5kg을
               권장한다.
             </p>
+            <p ref={resultRef} className={styles.resultSub}></p>
           </div>
           <button className={styles.btn} onClick={clickSubmit}>
             제출
