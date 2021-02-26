@@ -1,8 +1,6 @@
 ### 이번에 한 것
 
-1. auth 하나로 묶기 
-2. kakao login repository 수정 
-
+1. lifting state
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
