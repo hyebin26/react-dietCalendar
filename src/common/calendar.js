@@ -22,7 +22,6 @@ const MakeCalendar = {
     "Friday",
     "Saturday",
   ],
-  day: ["일", "월", "화", "수", "목", "금", "토"],
   today: new Date(),
   monForChange: new Date().getMonth(),
   getFirstDay: (yy, mm) => new Date(yy, mm, 1),

@@ -8,7 +8,6 @@
 
 .title {
   cursor: pointer;
-  display: block;
   text-decoration: none;
   color: black;
   border-radius: 50%;
@@ -18,4 +17,7 @@
 }
 .today {
   color: rgb(253, 197, 93);
+}
+.clickDate {
+  display: none;
 }
