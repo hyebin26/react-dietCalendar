@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ClickDate from "../clickDate/clickDate";
 import Footer from "../footer/footer";
@@ -10,9 +10,11 @@ import MakeCalendar from "../../common/calendar";
 const Calendar = ({ repository, auth }) => {
   const location = useLocation();
   const result =
-    location.state.result === undefined ? "" : location.state.result;
+    location.state.result === undefined ? "" : parseInt(location.state.result);
 
+  const formRef = useRef();
   const countDay = [];
+  const today = MakeCalendar.today.getDate();
   let yy = MakeCalendar.today.getFullYear();
   let mm = MakeCalendar.today.getMonth();
   let todayMonth = MakeCalendar.monList[mm];
@@ -25,16 +27,28 @@ const Calendar = ({ repository, auth }) => {
   const [stateCurrentMonth, setStateCurrentMonth] = useState(currentMonth);
   const [stateYear, setStateYear] = useState(yy);
 
-  const [clickedDate, setClickedDate] = useState();
-  const [clickedMonth, setClickedMonth] = useState();
-  const [currentCal, setCurrentCal] = useState(0);
+  const [clickedDate, setClickedDate] = useState(today);
+  const [clickedMonth, setClickedMonth] = useState(currentMonth);
+
   const [breakfastValue, setBreakfastValue] = useState(0);
   const [lunchValue, setLunchValue] = useState(0);
   const [dinnerValue, setDinnerValue] = useState(0);
+  const [currentCal, setCurrentCal] = useState(0);
 
   const onClickDate = (_clickDate, _clickmonth) => {
     setClickedDate(_clickDate);
     setClickedMonth(_clickmonth);
+    formRef.current.reset();
+  };
+  const clickResultBtn = (res) => {
+    setStateClickDate([
+      ...stateClickDate,
+      {
+        date: parseInt(clickedDate),
+        month: clickedMonth,
+        resultCal: res,
+      },
+    ]);
   };
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
@@ -93,6 +107,14 @@ const Calendar = ({ repository, auth }) => {
 
   handleCountDay(countDay, setFirstDay, lastDay);
 
+  const [stateClickDate, setStateClickDate] = useState([
+    {
+      date: clickedDate,
+      month: clickedMonth,
+      resultCal: 500,
+    },
+  ]);
+
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
   });
@@ -107,8 +129,9 @@ const Calendar = ({ repository, auth }) => {
           onChangeBreakfast={onChangeBreakfast}
           onChangeLunch={onChangeLunch}
           onChangeDinner={onChangeDinner}
-          MakeCalendar={MakeCalendar}
           clickedMonth={clickedMonth}
+          clickResultBtn={clickResultBtn}
+          formRef={formRef}
         />
         <ShowDate
           onClickDate={onClickDate}
@@ -120,6 +143,7 @@ const Calendar = ({ repository, auth }) => {
           stateCurrentMonth={stateCurrentMonth}
           stateYear={stateYear}
           stateCountDay={stateCountDay}
+          stateClickDate={stateClickDate}
         />
       </div>
       <Footer />

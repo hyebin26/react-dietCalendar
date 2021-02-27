@@ -14,6 +14,7 @@ const ShowDate = ({
   stateYear,
   todayMonth,
   stateCountDay,
+  stateClickDate,
 }) => {
   return (
     <div className={styles.container}>
@@ -43,6 +44,7 @@ const ShowDate = ({
               result={result}
               currentCal={currentCal}
               todayMonth={todayMonth}
+              stateClickDate={stateClickDate}
             />
           );
         })}

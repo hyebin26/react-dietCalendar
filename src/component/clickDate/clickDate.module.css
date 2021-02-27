@@ -1,9 +1,10 @@
 @value subColor,mainColor,pColor,font_white from "../../common/styles.css";
 
 .container {
-  flex: 1 1 40%;
+  flex: 1 1 25%;
   padding: 3rem 1rem;
   text-align: center;
+  border-right: 4px solid subColor;
 }
 
 .dayNumber {
@@ -14,10 +15,21 @@
   padding: 1rem 0;
 }
 .link {
-  display: block;
   color: font_white;
   margin-top: 1rem;
-  padding: 0.2rem 0;
+  padding: 0.2rem 2rem;
   background-color: mainColor;
   text-decoration: none;
+  display: block;
+}
+.btn {
+  border: none;
+  padding: 0.3rem 1rem;
+  outline: none;
+  color: white;
+  background-color: rgb(253, 197, 93);
+  cursor: pointer;
+}
+.h3 {
+  margin-bottom: 1rem;
 }
