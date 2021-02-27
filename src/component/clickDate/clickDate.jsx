@@ -24,7 +24,7 @@ const ClickDate = ({
   };
   const onClickResultBtn = (e) => {
     e.preventDefault();
-    clickResultBtn(result - currentCal);
+    clickResultBtn(result - currentCal, clickedDate, clickedMonth);
     formRef.current.reset();
   };
 

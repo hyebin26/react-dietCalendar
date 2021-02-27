@@ -17,9 +17,7 @@ const Login = ({ auth }) => {
   const clickGoogle = () => {
     auth.googleAuth().then((res) => goToHome(res.user.uid));
   };
-  const clickGithub = () => {
-    auth.githubAuth().then((res) => goToHome(res.user.uid));
-  };
+
   const clickKakao = () => {
     auth.loginKakao(goToHome);
   };
@@ -31,16 +29,6 @@ const Login = ({ auth }) => {
   const getNaverToken = async () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
-
-    await fetch("/User/Naver", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: token,
-      },
-    })
-      .then((res) => res.json())
-      .then((resjson) => goToHome(resjson));
   };
 
   useEffect(() => {
@@ -53,6 +41,7 @@ const Login = ({ auth }) => {
       user && goToHome(user.uid);
     });
   }, [auth]);
+
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
@@ -63,9 +52,6 @@ const Login = ({ auth }) => {
         <div className={styles.btnBox}>
           <button onClick={clickGoogle} className={styles.btn}>
             Google
-          </button>
-          <button onClick={clickGithub} className={styles.btn}>
-            Github
           </button>
           <button onClick={clickKakao} className={styles.btn}>
             Kakao

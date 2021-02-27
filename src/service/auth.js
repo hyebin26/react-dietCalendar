@@ -11,10 +11,7 @@ class Auth {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(googleProvider);
   }
-  githubAuth() {
-    const githubProvider = new firebase.auth.GithubAuthProvider();
-    return firebase.auth().signInWithPopup(githubProvider);
-  }
+
   loginKakao(goToHome) {
     Kakao.Auth.loginForm({
       success: function (authObj) {
@@ -28,8 +25,8 @@ class Auth {
   }
   initializeNaverLogin() {
     const naverLogin = new naver.LoginWithNaverId({
-      clientId: process.env.NAVER_URL,
-      callbackUrl: process.env.NAVER_ID,
+      clientId: process.env.REACT_APP_NAVER_ID,
+      callbackUrl: process.env.REACT_APP_NAVER_URL,
       isPopup: true,
       loginButton: { color: "green", type: 1, height: 30 },
       callbackHandlke: true,

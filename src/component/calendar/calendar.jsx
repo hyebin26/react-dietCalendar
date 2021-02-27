@@ -27,7 +27,7 @@ const Calendar = ({ repository, auth }) => {
   const [stateCurrentMonth, setStateCurrentMonth] = useState(currentMonth);
   const [stateYear, setStateYear] = useState(yy);
 
-  const [clickedDate, setClickedDate] = useState(today);
+  const [clickedDate, setClickedDate] = useState(parseInt(today));
   const [clickedMonth, setClickedMonth] = useState(currentMonth);
 
   const [breakfastValue, setBreakfastValue] = useState(0);
@@ -35,14 +35,34 @@ const Calendar = ({ repository, auth }) => {
   const [dinnerValue, setDinnerValue] = useState(0);
   const [currentCal, setCurrentCal] = useState(0);
 
+  const [stateClickDate, setStateClickDate] = useState([
+    {
+      date: parseInt(clickedDate),
+      month: clickedMonth,
+      resultCal: 500,
+    },
+    {
+      date: 10,
+      month: clickedMonth,
+      resultCal: 500,
+    },
+    {
+      date: 20,
+      month: clickedMonth,
+      resultCal: 500,
+    },
+  ]);
+
   const onClickDate = (_clickDate, _clickmonth) => {
-    setClickedDate(_clickDate);
+    setClickedDate(parseInt(_clickDate));
     setClickedMonth(_clickmonth);
     formRef.current.reset();
   };
-  const clickResultBtn = (res) => {
+  const clickResultBtn = (res, _clickedDate, _clickedMonth) => {
     setStateClickDate([
-      ...stateClickDate,
+      stateClickDate.filter(
+        (obj) => obj.date !== _clickedDate && obj.month !== _clickedMonth
+      ),
       {
         date: parseInt(clickedDate),
         month: clickedMonth,
@@ -50,6 +70,7 @@ const Calendar = ({ repository, auth }) => {
       },
     ]);
   };
+  console.log(stateClickDate);
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
   };
@@ -107,17 +128,10 @@ const Calendar = ({ repository, auth }) => {
 
   handleCountDay(countDay, setFirstDay, lastDay);
 
-  const [stateClickDate, setStateClickDate] = useState([
-    {
-      date: clickedDate,
-      month: clickedMonth,
-      resultCal: 500,
-    },
-  ]);
-
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
   });
+
   return (
     <section className={styles.container}>
       <Header auth={auth} />

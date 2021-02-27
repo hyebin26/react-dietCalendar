@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./makeDate.module.css";
 import cx from "classnames";
 
@@ -6,8 +6,6 @@ const MakeDate = ({
   date,
   onClickDate,
   stateCurrentMonth,
-  result,
-  currentCal,
   todayMonth,
   changeResult,
   stateClickDate,
@@ -15,7 +13,6 @@ const MakeDate = ({
   const markToday =
     stateCurrentMonth === todayMonth ? new Date().getDate() : false;
 
-  console.log(stateClickDate);
   const clickDate = (e) => {
     onClickDate(e.target.innerText, stateCurrentMonth);
   };
@@ -36,8 +33,12 @@ const MakeDate = ({
       </p>
       <span className={styles.cal} onChange={onChangeResult} ref={spanRef}>
         {stateClickDate.map((obj) => {
-          if (obj.date == date && obj.month == stateCurrentMonth) {
-            return obj.resultCal + "cal";
+          if (obj.date === date && obj.month === stateCurrentMonth) {
+            if (obj.resultCal > 0) {
+              return "+" + obj.resultCal + "Cal";
+            } else {
+              return obj.resultCal + "Cal";
+            }
           } else {
             return false;
           }

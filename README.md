@@ -3,6 +3,7 @@
 1. 확인 누를 시 칼로리 저장
 2. css 수정
 3. form reset
+4. delete github login
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
