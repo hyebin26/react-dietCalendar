@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import LinkButton from "../linkButton/linkButton";
 import styles from "./clickDate.module.css";
 
@@ -52,7 +51,7 @@ const ClickDate = ({
           확인
         </button>
       </form>
-      <h3>현재 칼로리: {currentCal}cal</h3>
+      <h3>현재 칼로리: {isNaN(currentCal) ? 0 : currentCal}cal</h3>
       <h3 className={styles.h3}>하루 칼로리: {result}cal</h3>
       <LinkButton />
     </div>

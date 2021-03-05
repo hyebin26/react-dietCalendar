@@ -40,6 +40,9 @@ const Calendar = ({ repository, auth }) => {
   const onClickDate = (_clickDate, _clickmonth) => {
     setClickedDate(parseInt(_clickDate));
     setClickedMonth(_clickmonth);
+    setLunchValue(0);
+    setBreakfastValue(0);
+    setDinnerValue(0);
     formRef.current.reset();
   };
   const clickResultBtn = (res, _clickedDate, _clickedMonth) => {
@@ -52,6 +55,9 @@ const Calendar = ({ repository, auth }) => {
       resultCal: res,
     });
     setStateClickDate(concatItem);
+    setBreakfastValue(0);
+    setLunchValue(0);
+    setDinnerValue(0);
   };
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
@@ -63,7 +69,7 @@ const Calendar = ({ repository, auth }) => {
     setDinnerValue(parseInt(cal));
   };
 
-  const clickPrevMonth = useCallback(() => {
+  const clickPrevMonth = () => {
     let countDay = [];
     let prevMonth = MakeCalendar.prevMonth();
     let yy = prevMonth.getFullYear();
@@ -79,9 +85,9 @@ const Calendar = ({ repository, auth }) => {
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  });
+  };
 
-  const clickNextMonth = useCallback(() => {
+  const clickNextMonth = () => {
     let countDay = [];
     let nextMonth = MakeCalendar.nextMonth();
     let yy = nextMonth.getFullYear();
@@ -97,7 +103,7 @@ const Calendar = ({ repository, auth }) => {
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  });
+  };
 
   const handleCountDay = (_array, _firstDay, _lastDay) => {
     for (let j = 0; j < _firstDay; j++) {
