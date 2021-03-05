@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ClickDate from "../clickDate/clickDate";
 import Footer from "../footer/footer";
@@ -63,7 +63,7 @@ const Calendar = ({ repository, auth }) => {
     setDinnerValue(parseInt(cal));
   };
 
-  const clickPrevMonth = () => {
+  const clickPrevMonth = useCallback(() => {
     let countDay = [];
     let prevMonth = MakeCalendar.prevMonth();
     let yy = prevMonth.getFullYear();
@@ -79,9 +79,9 @@ const Calendar = ({ repository, auth }) => {
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  };
+  });
 
-  const clickNextMonth = () => {
+  const clickNextMonth = useCallback(() => {
     let countDay = [];
     let nextMonth = MakeCalendar.nextMonth();
     let yy = nextMonth.getFullYear();
@@ -97,7 +97,7 @@ const Calendar = ({ repository, auth }) => {
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  };
+  });
 
   const handleCountDay = (_array, _firstDay, _lastDay) => {
     for (let j = 0; j < _firstDay; j++) {

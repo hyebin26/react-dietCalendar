@@ -1,19 +1,20 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import styles from "./header.module.css";
 import { faHippo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 
-const Header = ({ auth }) => {
+const Header = memo(({ auth }) => {
   const history = useHistory();
-  const onClickSignOut = () => {
+  const onClickSignOut = useCallback(() => {
     auth
       .signOut()
       .then(() => {
         history.push("/");
       })
       .catch((err) => console.log(err));
-  };
+  });
+  console.log("Header");
   return (
     <div className={styles.logo}>
       {auth && (
@@ -25,6 +26,6 @@ const Header = ({ auth }) => {
       <span>Diet Calendar</span>
     </div>
   );
-};
+});
 
 export default Header;

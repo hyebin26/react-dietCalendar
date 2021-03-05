@@ -14,14 +14,7 @@
 .itemContainer {
   padding: 1rem 0;
 }
-.link {
-  color: font_white;
-  margin-top: 1rem;
-  padding: 0.2rem 2rem;
-  background-color: mainColor;
-  text-decoration: none;
-  display: block;
-}
+
 .btn {
   border: none;
   padding: 0.3rem 1rem;

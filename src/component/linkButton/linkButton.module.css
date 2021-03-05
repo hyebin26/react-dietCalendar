@@ -1,0 +1,10 @@
+@value mainColor,font_white from "../../common/styles.css";
+
+.link {
+  color: font_white;
+  margin-top: 1rem;
+  padding: 0.2rem 2rem;
+  background-color: mainColor;
+  text-decoration: none;
+  display: block;
+}

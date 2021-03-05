@@ -26,9 +26,13 @@ const Login = ({ auth }) => {
     naverRef.current.firstChild.click();
   };
 
-  const getNaverToken = async () => {
+  const getNaverToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
+    
+    if (!token) {
+      window.close();
+    }
   };
 
   useEffect(() => {

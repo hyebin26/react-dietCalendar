@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import LinkButton from "../linkButton/linkButton";
 import styles from "./clickDate.module.css";
 
 const ClickDate = ({
@@ -53,9 +54,7 @@ const ClickDate = ({
       </form>
       <h3>현재 칼로리: {currentCal}cal</h3>
       <h3 className={styles.h3}>하루 칼로리: {result}cal</h3>
-      <Link to="/Home" className={styles.link}>
-        하루 칼로리 설정하기
-      </Link>
+      <LinkButton />
     </div>
   );
 };
