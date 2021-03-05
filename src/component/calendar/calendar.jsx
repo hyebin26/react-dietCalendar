@@ -35,23 +35,7 @@ const Calendar = ({ repository, auth }) => {
   const [dinnerValue, setDinnerValue] = useState(0);
   const [currentCal, setCurrentCal] = useState(0);
 
-  const [stateClickDate, setStateClickDate] = useState([
-    {
-      date: parseInt(clickedDate),
-      month: clickedMonth,
-      resultCal: 500,
-    },
-    {
-      date: 10,
-      month: clickedMonth,
-      resultCal: 500,
-    },
-    {
-      date: 20,
-      month: clickedMonth,
-      resultCal: 500,
-    },
-  ]);
+  const [stateClickDate, setStateClickDate] = useState([]);
 
   const onClickDate = (_clickDate, _clickmonth) => {
     setClickedDate(parseInt(_clickDate));
@@ -59,18 +43,16 @@ const Calendar = ({ repository, auth }) => {
     formRef.current.reset();
   };
   const clickResultBtn = (res, _clickedDate, _clickedMonth) => {
-    setStateClickDate([
-      stateClickDate.filter(
-        (obj) => obj.date !== _clickedDate && obj.month !== _clickedMonth
-      ),
-      {
-        date: parseInt(clickedDate),
-        month: clickedMonth,
-        resultCal: res,
-      },
-    ]);
+    let filterItem = stateClickDate.filter(
+      (obj) => obj.date !== _clickedDate || obj.month !== _clickedMonth
+    );
+    let concatItem = filterItem.concat({
+      date: parseInt(clickedDate),
+      month: clickedMonth,
+      resultCal: res,
+    });
+    setStateClickDate(concatItem);
   };
-  console.log(stateClickDate);
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
   };

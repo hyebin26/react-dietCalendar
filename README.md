@@ -1,9 +1,7 @@
 ### 이번에 한 것
 
-1. 확인 누를 시 칼로리 저장
-2. css 수정
-3. form reset
-4. delete github login
+1. 칼로리 입력하면 캘린더에 입력한 값이 출력
+2. makeDateList 추가
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

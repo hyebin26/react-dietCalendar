@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./makeDate.module.css";
 import cx from "classnames";
+import MakeDateList from "../makeDateList/makeDateList";
 
 const MakeDate = ({
   date,
   onClickDate,
   stateCurrentMonth,
   todayMonth,
-  changeResult,
   stateClickDate,
 }) => {
   const markToday =
@@ -16,13 +16,7 @@ const MakeDate = ({
   const clickDate = (e) => {
     onClickDate(e.target.innerText, stateCurrentMonth);
   };
-  const spanRef = useRef();
 
-  const onChangeResult = (e) => {
-    changeResult(e.target.innerTet);
-  };
-
-  useEffect(() => {});
   return (
     <li className={styles.date}>
       <p
@@ -31,19 +25,13 @@ const MakeDate = ({
       >
         {date}
       </p>
-      <span className={styles.cal} onChange={onChangeResult} ref={spanRef}>
-        {stateClickDate.map((obj) => {
-          if (obj.date === date && obj.month === stateCurrentMonth) {
-            if (obj.resultCal > 0) {
-              return "+" + obj.resultCal + "Cal";
-            } else {
-              return obj.resultCal + "Cal";
-            }
-          } else {
-            return false;
-          }
-        })}
-      </span>
+      {stateClickDate.map((clickObj) => {
+        if (clickObj.date === date && clickObj.month === stateCurrentMonth) {
+          return <MakeDateList resultCal={clickObj.resultCal} />;
+        } else {
+          return false;
+        }
+      })}
     </li>
   );
 };
