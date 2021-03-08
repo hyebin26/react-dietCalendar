@@ -1,8 +1,7 @@
 import React, { memo } from "react";
 import styles from "./showDate.module.css";
 import MakeDate from "../makeDate/makeDate";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import SlideCalendar from "../slideCalendar/slideCalendar";
 
 const ShowDate = memo(
   ({
@@ -19,12 +18,12 @@ const ShowDate = memo(
   }) => {
     return (
       <div className={styles.container}>
-        <div className={styles.title}>
-          <FontAwesomeIcon icon={faArrowLeft} onClick={clickPrevMonth} />
-          <span>{stateCurrentMonth}</span>
-          <span>{stateYear}</span>
-          <FontAwesomeIcon icon={faArrowRight} onClick={clickNextMonth} />
-        </div>
+        <SlideCalendar
+          stateCurrentMonth={stateCurrentMonth}
+          stateYear={stateYear}
+          clickNextMonth={clickNextMonth}
+          clickPrevMonth={clickPrevMonth}
+        />
         <ul className={styles.dayContainer}>
           <li>일</li>
           <li>월</li>

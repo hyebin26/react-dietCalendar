@@ -11,6 +11,7 @@ const Calendar = ({ repository, auth }) => {
   const location = useLocation();
   const result =
     location.state.result === undefined ? "" : parseInt(location.state.result);
+  let userId = location.state.userId;
 
   const formRef = useRef();
   const countDay = [];
@@ -58,6 +59,8 @@ const Calendar = ({ repository, auth }) => {
     setBreakfastValue(0);
     setLunchValue(0);
     setDinnerValue(0);
+
+    repository.saveData(userId, concatItem);
   };
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
@@ -87,7 +90,7 @@ const Calendar = ({ repository, auth }) => {
     setStateYear(yy);
   };
 
-  const clickNextMonth = () => {
+  const clickNextMonth = useCallback(() => {
     let countDay = [];
     let nextMonth = MakeCalendar.nextMonth();
     let yy = nextMonth.getFullYear();
@@ -103,7 +106,7 @@ const Calendar = ({ repository, auth }) => {
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  };
+  }, []);
 
   const handleCountDay = (_array, _firstDay, _lastDay) => {
     for (let j = 0; j < _firstDay; j++) {
@@ -114,11 +117,19 @@ const Calendar = ({ repository, auth }) => {
     }
   };
 
+  const saveUser = (data) => {
+    if (data === null) return false;
+    setStateClickDate(data);
+  };
   handleCountDay(countDay, setFirstDay, lastDay);
 
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
   });
+
+  useEffect(() => {
+    repository.loadUser(userId, saveUser);
+  }, [repository]);
 
   return (
     <section className={styles.container}>

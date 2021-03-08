@@ -1,8 +1,8 @@
 import firebase from "./firebase";
 
 class Repository {
-  loadUser(userId, loadData) {
-    firebase
+  async loadUser(userId, loadData) {
+    await firebase
       .database()
       .ref(`${userId}/date`)
       .on("value", (snapshot) => {
@@ -10,8 +10,8 @@ class Repository {
         loadData(data);
       });
   }
-  saveData(userId, data) {
-    firebase.database().ref(`${userId}/date/}`).set(data);
+  async saveData(userId, date) {
+    await firebase.database().ref(`${userId}/date`).set(date);
   }
 
   deleteData(userId, data) {

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import styles from "./home.module.css";
@@ -10,6 +10,7 @@ const Home = ({ auth }) => {
   const signRef = useRef();
   const resultRef = useRef();
   const history = useHistory();
+  const location = useLocation();
 
   const [height, setHeight] = useState();
   const [commonWeight, setCommonWeight] = useState();
@@ -52,7 +53,7 @@ const Home = ({ auth }) => {
     }
     history.push({
       pathname: "/Calendar",
-      state: { result: result },
+      state: { result: result, userId: location.state.userId },
     });
   };
   return (
