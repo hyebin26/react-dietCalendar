@@ -1,8 +1,5 @@
 ### 이번에 한 것
 
-1. add slideCalendar.jsx 
-2. add repository saveUser, loadUser
-
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
 

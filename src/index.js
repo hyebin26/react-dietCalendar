@@ -9,8 +9,6 @@ const repository = new Repository();
 const auth = new Auth();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App auth={auth} repository={repository} />
-  </React.StrictMode>,
+  <App auth={auth} repository={repository} />,
   document.getElementById("root")
 );

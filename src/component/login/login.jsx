@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./login.module.css";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
 
-const Login = ({ auth }) => {
+const Login = ({ auth, repository }) => {
   const history = useHistory();
   const location = useLocation();
   const naverRef = useRef();
@@ -18,8 +18,8 @@ const Login = ({ auth }) => {
     auth.googleAuth().then((res) => goToHome(res.user.uid));
   };
 
-  const clickKakao = () => {
-    auth.loginKakao(goToHome);
+  const clickKakao = (e) => {
+    auth.loginKakao();
   };
   const clickNaver = (e) => {
     e.preventDefault();
@@ -29,10 +29,13 @@ const Login = ({ auth }) => {
   const getNaverToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
-    
-    if (!token) {
-      window.close();
+    if (token) {
+      return false;
     }
+  };
+
+  const onClickNaver = (e) => {
+    e.preventDefault();
   };
 
   useEffect(() => {
@@ -46,6 +49,14 @@ const Login = ({ auth }) => {
     });
   }, [auth]);
 
+  useEffect(() => {
+    const code = new URLSearchParams(location.search).get("code");
+    let kakaoToken;
+    if (code === undefined) {
+      return false;
+    }
+    auth.fetchToken(code).then((res) => goToHome(res.id));
+  }, []);
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
@@ -66,6 +77,7 @@ const Login = ({ auth }) => {
           <div
             id="naverIdLogin"
             ref={naverRef}
+            onClick={onClickNaver}
             className={styles.naverLogin}
           ></div>
         </div>

@@ -11,7 +11,9 @@ const Calendar = ({ repository, auth }) => {
   const location = useLocation();
   const result =
     location.state.result === undefined ? "" : parseInt(location.state.result);
-  let userId = location.state.userId;
+  const userId = localStorage.getItem("token")
+    ? localStorage.getItem("token")
+    : location.state.userId;
 
   const formRef = useRef();
   const countDay = [];

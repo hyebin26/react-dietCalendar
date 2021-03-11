@@ -7,12 +7,17 @@ import { useHistory } from "react-router-dom";
 const Header = memo(({ auth }) => {
   const history = useHistory();
   const onClickSignOut = useCallback(() => {
-    auth
-      .signOut()
-      .then(() => {
-        history.push("/");
-      })
-      .catch((err) => console.log(err));
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      history.push("/");
+    } else {
+      auth
+        .signOut()
+        .then(() => {
+          history.push("/");
+        })
+        .catch((err) => console.log(err));
+    }
   });
   return (
     <div className={styles.logo}>
