@@ -29,9 +29,7 @@ const Login = ({ auth, repository }) => {
   const getNaverToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
-    if (token) {
-      return false;
-    }
+    localStorage.setItem("naver_token", token);
   };
 
   const onClickNaver = (e) => {
@@ -51,11 +49,23 @@ const Login = ({ auth, repository }) => {
 
   useEffect(() => {
     const code = new URLSearchParams(location.search).get("code");
-    let kakaoToken;
-    if (code === undefined) {
+    if (code === null) {
       return false;
     }
-    auth.fetchToken(code).then((res) => goToHome(res.id));
+    auth.fetchToken(code).then((res) => {
+      // localStorage.setItem("kakaoToken", res.id);
+      // return goToHome(res.id);
+      return console.log(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    const naverToken = localStorage.getItem("naver_token");
+    if (naverToken) {
+      auth
+        .fetchNaverToken(naverToken) //
+        .then((res) => console.log(res));
+    }
   }, []);
   return (
     <section className={styles.container}>

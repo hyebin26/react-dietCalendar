@@ -7,9 +7,9 @@ import { useHistory } from "react-router-dom";
 const Header = memo(({ auth }) => {
   const history = useHistory();
   const onClickSignOut = useCallback(() => {
-    if (localStorage.getItem("token")) {
-      localStorage.removeItem("token");
-      history.push("/");
+    if (localStorage.getItem("kakaoToken")) {
+      localStorage.removeItem("kakaoToken");
+      auth.kakaoLogout();
     } else {
       auth
         .signOut()
@@ -18,7 +18,7 @@ const Header = memo(({ auth }) => {
         })
         .catch((err) => console.log(err));
     }
-  });
+  }, []);
   return (
     <div className={styles.logo}>
       {auth && (

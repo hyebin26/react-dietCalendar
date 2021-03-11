@@ -19,20 +19,23 @@ class Auth {
       method: "POST",
       redirect: "follow",
     };
-
     return await fetch(
       `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${process.env.REACT_APP_KAKAO_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_URL}&code=${code}`,
       requestOptions
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        return fetch("https://kapi.kakao.com/v2/user/me", {
-          method: "GET",
-          headers: result.access_token,
-          redirect: "follow",
-        });
-      }) //
-      .then((token) => token);
+    ).then((res) => res.json());
+    // .then((result) => {
+    //   return fetch("https://kapi.kakao.com/v2/user/me", {
+    //     method: "GET",
+    //     headers:{Authorization:`Beaer ${result.access_token}`},
+    //     redirect: "follow",
+    //   });
+    // }) //
+    // .then((token) => token);
+  }
+  async kakaoLogout() {
+    return await fetch(
+      `kauth.kakao.com/oauth/logout?client_id=${process.env.REACT_APP_KAKAO_KEY}&logout_redirect_uri=${process.env.REACT_APP_KAKAO_URL}`
+    );
   }
   initializeNaverLogin() {
     const naverLogin = new naver.LoginWithNaverId({
@@ -43,6 +46,13 @@ class Auth {
       callbackHandlke: true,
     });
     naverLogin.init();
+  }
+  async fetchNaverToken(code) {
+    return await fetch("https://openapi.naver.com/v1/nid/me", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${code}` },
+      redirect: "follow",
+    }).then((res) => res.json());
   }
 
   signOut() {
