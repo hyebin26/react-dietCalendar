@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import styles from "./login.module.css";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
@@ -8,12 +8,15 @@ const Login = ({ auth, repository }) => {
   const location = useLocation();
   const naverRef = useRef();
 
-  const goToHome = (userId) => {
-    history.push({
-      pathname: "/Home",
-      state: { userId: userId },
-    });
-  };
+  const goToHome = useCallback(
+    (userId) => {
+      history.push({
+        pathname: "/Home",
+        state: { userId: userId },
+      });
+    },
+    [history]
+  );
   const clickGoogle = () => {
     auth.googleAuth().then((res) => goToHome(res.user.uid));
   };
@@ -26,11 +29,11 @@ const Login = ({ auth, repository }) => {
     naverRef.current.firstChild.click();
   };
 
-  const getNaverToken = () => {
+  const getNaverToken = useCallback(() => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
     localStorage.setItem("naver_token", token);
-  };
+  }, [location.hash]);
 
   const onClickNaver = (e) => {
     e.preventDefault();
@@ -39,13 +42,13 @@ const Login = ({ auth, repository }) => {
   useEffect(() => {
     auth.initializeNaverLogin();
     getNaverToken();
-  }, []);
+  }, [auth, getNaverToken]);
 
   useEffect(() => {
     auth.onAuthChange((user) => {
       user && goToHome(user.uid);
     });
-  }, [auth]);
+  }, [auth, goToHome]);
 
   useEffect(() => {
     const code = new URLSearchParams(location.search).get("code");
@@ -57,7 +60,7 @@ const Login = ({ auth, repository }) => {
       // return goToHome(res.id);
       return console.log(res);
     });
-  }, []);
+  }, [auth, location.search]);
 
   useEffect(() => {
     const naverToken = localStorage.getItem("naver_token");
@@ -66,7 +69,7 @@ const Login = ({ auth, repository }) => {
         .fetchNaverToken(naverToken) //
         .then((res) => console.log(res));
     }
-  }, []);
+  }, [auth]);
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>
