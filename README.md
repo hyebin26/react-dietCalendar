@@ -1,8 +1,6 @@
 ### 이번에 한 것
 
-1. clickDate 에 input부분을 컴포넌트로 나눴다(clickData_input)
-2. linkBtn이름을 알아보기 쉽게 clickDate_linkBtn으로 변경
-3. add memo to clickData.jsx
+1. state 정리
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

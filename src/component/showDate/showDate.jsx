@@ -7,7 +7,6 @@ const ShowDate = memo(
   ({
     onClickDate,
     result,
-    currentCal,
     clickPrevMonth,
     clickNextMonth,
     stateCurrentMonth,
@@ -42,7 +41,6 @@ const ShowDate = memo(
                 key={index}
                 stateCurrentMonth={stateCurrentMonth}
                 result={result}
-                currentCal={currentCal}
                 todayMonth={todayMonth}
                 stateClickDate={stateClickDate}
               />

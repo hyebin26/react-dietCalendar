@@ -1,6 +1,6 @@
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { memo, useCallback } from "react";
+import React, { memo } from "react";
 import styles from "./slideCalendar.module.css";
 
 const SlideCalendar = memo(

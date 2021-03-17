@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ClickDate from "../clickDate/clickDate";
 import Footer from "../footer/footer";
@@ -88,7 +88,6 @@ const Calendar = ({ repository, auth }) => {
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
   };
-
   const clickNextMonth = () => {
     const nextMonth = MakeCalendar.nextMonth();
 
@@ -115,16 +114,16 @@ const Calendar = ({ repository, auth }) => {
       _array.push(i);
     }
   };
+  handleCountDay(countDay, setFirstDay, lastDay);
 
   const saveUser = (data) => {
     if (data === null) return false;
     setStateClickDate(data);
   };
-  handleCountDay(countDay, setFirstDay, lastDay);
 
   useEffect(() => {
     setCurrentCal(breakfastValue + lunchValue + dinnerValue);
-  });
+  }, [breakfastValue, lunchValue, dinnerValue]);
 
   useEffect(() => {
     repository.loadUser(userId, saveUser);
@@ -148,7 +147,6 @@ const Calendar = ({ repository, auth }) => {
         <ShowDate
           onClickDate={onClickDate}
           result={result}
-          currentCal={currentCal}
           todayMonth={todayMonth}
           clickPrevMonth={clickPrevMonth}
           clickNextMonth={clickNextMonth}
