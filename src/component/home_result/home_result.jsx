@@ -7,7 +7,7 @@ const HomeResult = memo(({ result, handleResult, resultRef }) => {
       <p>하루 칼로리 설정</p>
       <input
         type="number"
-        value={result}
+        value={result || ""}
         onChange={handleResult}
         name="result"
       />

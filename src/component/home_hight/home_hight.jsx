@@ -6,7 +6,7 @@ const HomeHight = memo(({ height, handleHeight, heightRef }) => {
       <p>키(cm) </p>
       <input
         type="number"
-        value={height}
+        value={height || ""}
         onChange={handleHeight}
         name="height"
       />

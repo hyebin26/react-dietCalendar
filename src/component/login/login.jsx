@@ -59,7 +59,7 @@ const Login = ({ auth }) => {
       localStorage.setItem("kakaoToken", res.id);
       return goToHome(res.id);
     });
-  }, [auth, location.search]);
+  }, [auth, location.search, goToHome]);
 
   useEffect(() => {
     const naverToken = localStorage.getItem("naver_token");
