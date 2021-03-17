@@ -1,4 +1,7 @@
 ### 이번에 한 것
+1. home component로 나누기 (React memo위해서)
+2. value가 없을 때 default값 넣기
+
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

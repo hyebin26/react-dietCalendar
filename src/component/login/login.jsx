@@ -3,7 +3,7 @@ import styles from "./login.module.css";
 import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/header";
 
-const Login = ({ auth, repository }) => {
+const Login = ({ auth }) => {
   const history = useHistory();
   const location = useLocation();
   const naverRef = useRef();
@@ -56,18 +56,15 @@ const Login = ({ auth, repository }) => {
       return false;
     }
     auth.fetchToken(code).then((res) => {
-      // localStorage.setItem("kakaoToken", res.id);
-      // return goToHome(res.id);
-      return console.log(res);
+      localStorage.setItem("kakaoToken", res.id);
+      return goToHome(res.id);
     });
   }, [auth, location.search]);
 
   useEffect(() => {
     const naverToken = localStorage.getItem("naver_token");
     if (naverToken) {
-      auth
-        .fetchNaverToken(naverToken) //
-        .then((res) => console.log(res));
+      auth.fetchNaverToken(naverToken).then((res) => console.log(res)); //cors 때문에 못함 배포하고하기
     }
   }, [auth]);
   return (
