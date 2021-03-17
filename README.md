@@ -1,7 +1,8 @@
 ### 이번에 한 것
-1. home component로 나누기 (React memo위해서)
-2. value가 없을 때 default값 넣기
 
+1. clickDate 에 input부분을 컴포넌트로 나눴다(clickData_input)
+2. linkBtn이름을 알아보기 쉽게 clickDate_linkBtn으로 변경
+3. add memo to clickData.jsx
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>

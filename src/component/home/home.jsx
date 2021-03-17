@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Footer from "../footer/footer";
 import Header from "../header/header";
@@ -8,7 +8,7 @@ import HomeSign from "../home_sign/home_sign";
 import HomeWeight from "../home_weight/home_weight";
 import styles from "./home.module.css";
 
-const Home = ({ auth }) => {
+const Home = memo(() => {
   const heightRef = useRef();
   const weightRef = useRef();
   const signRef = useRef();
@@ -70,9 +70,15 @@ const Home = ({ auth }) => {
     }
     history.push({
       pathname: "/Calendar",
-      state: { result: result, userId: location.state.userId },
+      state: { result: result },
     });
   };
+
+  useEffect(() => {
+    if (location.state) {
+      localStorage.setItem("token", location.state.userId);
+    }
+  });
 
   return (
     <div className={styles.container}>
@@ -104,6 +110,6 @@ const Home = ({ auth }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Home;

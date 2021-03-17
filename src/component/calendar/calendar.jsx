@@ -9,14 +9,11 @@ import MakeCalendar from "../../common/calendar";
 
 const Calendar = ({ repository, auth }) => {
   const location = useLocation();
-  const result =
-    location.state.result === undefined ? "" : parseInt(location.state.result);
-  const userId = localStorage.getItem("token")
-    ? localStorage.getItem("token")
-    : location.state.userId;
-
   const formRef = useRef();
-  const countDay = [];
+  const result = parseInt(location.state.result);
+  const userId = localStorage.getItem("token");
+
+  let countDay = [];
   const today = MakeCalendar.today.getDate();
   let yy = MakeCalendar.today.getFullYear();
   let mm = MakeCalendar.today.getMonth();
@@ -75,15 +72,15 @@ const Calendar = ({ repository, auth }) => {
   };
 
   const clickPrevMonth = () => {
-    let countDay = [];
-    let prevMonth = MakeCalendar.prevMonth();
-    let yy = prevMonth.getFullYear();
-    let mm = prevMonth.getMonth();
-    let currentMonth = MakeCalendar.monList[mm];
+    const prevMonth = MakeCalendar.prevMonth();
 
-    let firstDay = MakeCalendar.getFirstDay(yy, mm);
-    let lastDay = MakeCalendar.getLastDay(yy, mm);
-    let setFirstDay = firstDay.getDay();
+    countDay = [];
+    yy = prevMonth.getFullYear();
+    mm = prevMonth.getMonth();
+    currentMonth = MakeCalendar.monList[mm];
+    firstDay = MakeCalendar.getFirstDay(yy, mm);
+    lastDay = MakeCalendar.getLastDay(yy, mm);
+    setFirstDay = firstDay.getDay();
 
     handleCountDay(countDay, setFirstDay, lastDay);
 
@@ -92,23 +89,23 @@ const Calendar = ({ repository, auth }) => {
     setStateYear(yy);
   };
 
-  const clickNextMonth = useCallback(() => {
-    let countDay = [];
-    let nextMonth = MakeCalendar.nextMonth();
-    let yy = nextMonth.getFullYear();
-    let mm = nextMonth.getMonth();
-    let currentMonth = MakeCalendar.monList[mm];
+  const clickNextMonth = () => {
+    const nextMonth = MakeCalendar.nextMonth();
 
-    let firstDay = MakeCalendar.getFirstDay(yy, mm);
-    let lastDay = MakeCalendar.getLastDay(yy, mm);
-    let setFirstDay = firstDay.getDay();
+    countDay = [];
+    yy = nextMonth.getFullYear();
+    mm = nextMonth.getMonth();
+    currentMonth = MakeCalendar.monList[mm];
+    firstDay = MakeCalendar.getFirstDay(yy, mm);
+    lastDay = MakeCalendar.getLastDay(yy, mm);
+    setFirstDay = firstDay.getDay();
 
     handleCountDay(countDay, setFirstDay, lastDay);
 
     setStateCountDay(countDay);
     setStateCurrentMonth(currentMonth);
     setStateYear(yy);
-  }, []);
+  };
 
   const handleCountDay = (_array, _firstDay, _lastDay) => {
     for (let j = 0; j < _firstDay; j++) {
