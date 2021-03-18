@@ -1,7 +1,6 @@
 {
   "name": "react_calendar",
   "version": "0.1.0",
-  "homepage": "https://hyebin26.github.io/react-dietCalendar",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -43,5 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://hyebin26.github.io/react-dietCalendar"
 }
