@@ -6,7 +6,7 @@ import Calendar from "./component/calendar/calendar";
 
 function App({ auth, repository }) {
   return (
-    <BrowserRouter basename="/react-dietCalendar">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/">
           <Login auth={auth} repository={repository} />
