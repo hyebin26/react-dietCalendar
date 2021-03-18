@@ -1,15 +1,16 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+// import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Login from "./component/login/login";
-import Home from "./component/home/home";
-import Calendar from "./component/calendar/calendar";
+// import Login from "./component/login/login";
+// import Home from "./component/home/home";
+// import Calendar from "./component/calendar/calendar";
 
 function App({ auth, repository }) {
   return (
+    <h2>Hello</h2>
     // <BrowserRouter basename="/react-dietCalendar">
     //   <Switch>
     //     <Route exact path="/">
-    <Login auth={auth} repository={repository} />
+    //       <Login auth={auth} repository={repository} />
     //     </Route>
     //     <Route path="/Home">
     //       <Home auth={auth} />
