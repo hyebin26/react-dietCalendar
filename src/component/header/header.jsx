@@ -18,7 +18,7 @@ const Header = memo(({ auth }) => {
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [auth, history]);
   return (
     <div className={styles.logo}>
       {auth && (

@@ -127,7 +127,7 @@ const Calendar = ({ repository, auth }) => {
 
   useEffect(() => {
     repository.loadUser(userId, saveUser);
-  }, [repository]);
+  }, [repository, userId]);
 
   return (
     <section className={styles.container}>
