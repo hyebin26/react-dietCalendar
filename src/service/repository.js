@@ -1,9 +1,8 @@
-import firebase from "./firebase";
+import { firebaseDatabase } from "./firebase";
 
 class Repository {
   async loadUser(userId, loadData) {
-    await firebase
-      .database()
+    await firebaseDatabase //
       .ref(`${userId}/date`)
       .on("value", (snapshot) => {
         const data = snapshot.val();
@@ -11,14 +10,14 @@ class Repository {
       });
   }
   async saveData(userId, date) {
-    await firebase.database().ref(`${userId}/date`).set(date);
+    await firebaseDatabase.ref(`${userId}/date`).set(date);
   }
 
   deleteData(userId, data) {
-    firebase.database().ref(`${userId}/date/`).remove(data);
+    firebaseDatabase.ref(`${userId}/date/`).remove(data);
   }
   updateDate(userId, data) {
-    firebase.database().ref(`${userId}/date/`).update(data);
+    firebaseDatabase.ref(`${userId}/date/`).update(data);
   }
 }
 

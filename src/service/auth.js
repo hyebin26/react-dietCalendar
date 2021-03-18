@@ -1,12 +1,12 @@
-import firebase from "./firebase";
+import { googleProvider, firebaseAuth } from "./firebase";
 
 const { naver } = window;
 const { Kakao } = window;
 
 class Auth {
   googleAuth() {
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    return firebase.auth().signInWithPopup(googleProvider);
+    const googleAuthProvider = googleProvider;
+    return firebaseAuth.signInWithPopup(googleAuthProvider);
   }
 
   loginKakao() {
@@ -57,10 +57,10 @@ class Auth {
   }
 
   signOut() {
-    return firebase.auth().signOut();
+    return firebaseAuth.signOut();
   }
   onAuthChange(goToHome) {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebaseAuth.onAuthStateChanged((user) => {
       goToHome(user);
     });
   }
