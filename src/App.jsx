@@ -6,19 +6,19 @@ import Calendar from "./component/calendar/calendar";
 
 function App({ auth, repository }) {
   return (
-    <BrowserRouter basename="/react-dietCalendar">
-      <Switch>
-        <Route exact path="/">
-          <Login auth={auth} repository={repository} />
-        </Route>
-        <Route path="/Home">
-          <Home auth={auth} />
-        </Route>
-        <Route path="/Calendar">
-          <Calendar repository={repository} auth={auth} />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    // <BrowserRouter basename="/react-dietCalendar">
+    //   <Switch>
+    //     <Route exact path="/">
+    <Login auth={auth} repository={repository} />
+    //     </Route>
+    //     <Route path="/Home">
+    //       <Home auth={auth} />
+    //     </Route>
+    //     <Route path="/Calendar">
+    //       <Calendar repository={repository} auth={auth} />
+    //     </Route>
+    //   </Switch>
+    // </BrowserRouter>
   );
 }
 
