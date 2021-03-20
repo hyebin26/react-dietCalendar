@@ -1,2 +1,0 @@
-(this.webpackJsonpreact_calendar=this.webpackJsonpreact_calendar||[]).push([[0],{10:function(e,t,c){"use strict";c.r(t);var n=c(0),r=c(1),a=c.n(r),o=c(3),s=c.n(o);c(9);s.a.render(Object(n.jsx)(a.a.StrictMode,{children:Object(n.jsx)("h2",{children:"Hello"})}),document.getElementById("root"))},9:function(e,t,c){}},[[10,1,2]]]);
-//# sourceMappingURL=main.d48429c6.chunk.js.map
