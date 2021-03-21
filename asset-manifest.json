@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-dietCalendar/static/css/main.8ee45842.chunk.css",
-    "main.js": "/react-dietCalendar/static/js/main.2bc82ab4.chunk.js",
-    "main.js.map": "/react-dietCalendar/static/js/main.2bc82ab4.chunk.js.map",
+    "main.css": "/react-dietCalendar/static/css/main.79fac9f6.chunk.css",
+    "main.js": "/react-dietCalendar/static/js/main.1c45c0f3.chunk.js",
+    "main.js.map": "/react-dietCalendar/static/js/main.1c45c0f3.chunk.js.map",
     "runtime-main.js": "/react-dietCalendar/static/js/runtime-main.a6522b3b.js",
     "runtime-main.js.map": "/react-dietCalendar/static/js/runtime-main.a6522b3b.js.map",
-    "static/js/2.72a56dc9.chunk.js": "/react-dietCalendar/static/js/2.72a56dc9.chunk.js",
-    "static/js/2.72a56dc9.chunk.js.map": "/react-dietCalendar/static/js/2.72a56dc9.chunk.js.map",
+    "static/js/2.9661bd15.chunk.js": "/react-dietCalendar/static/js/2.9661bd15.chunk.js",
+    "static/js/2.9661bd15.chunk.js.map": "/react-dietCalendar/static/js/2.9661bd15.chunk.js.map",
     "index.html": "/react-dietCalendar/index.html",
-    "static/css/main.8ee45842.chunk.css.map": "/react-dietCalendar/static/css/main.8ee45842.chunk.css.map",
-    "static/js/2.72a56dc9.chunk.js.LICENSE.txt": "/react-dietCalendar/static/js/2.72a56dc9.chunk.js.LICENSE.txt"
+    "static/css/main.79fac9f6.chunk.css.map": "/react-dietCalendar/static/css/main.79fac9f6.chunk.css.map",
+    "static/js/2.9661bd15.chunk.js.LICENSE.txt": "/react-dietCalendar/static/js/2.9661bd15.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a6522b3b.js",
-    "static/js/2.72a56dc9.chunk.js",
-    "static/css/main.8ee45842.chunk.css",
-    "static/js/main.2bc82ab4.chunk.js"
+    "static/js/2.9661bd15.chunk.js",
+    "static/css/main.79fac9f6.chunk.css",
+    "static/js/main.1c45c0f3.chunk.js"
   ]
 }
