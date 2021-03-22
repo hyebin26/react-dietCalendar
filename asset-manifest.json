@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-dietCalendar/static/css/main.8ee45842.chunk.css",
+    "main.css": "/react-dietCalendar/static/css/main.30227fa3.chunk.css",
     "main.js": "/react-dietCalendar/static/js/main.86f55572.chunk.js",
     "main.js.map": "/react-dietCalendar/static/js/main.86f55572.chunk.js.map",
     "runtime-main.js": "/react-dietCalendar/static/js/runtime-main.a6522b3b.js",
@@ -8,13 +8,13 @@
     "static/js/2.f82f0022.chunk.js": "/react-dietCalendar/static/js/2.f82f0022.chunk.js",
     "static/js/2.f82f0022.chunk.js.map": "/react-dietCalendar/static/js/2.f82f0022.chunk.js.map",
     "index.html": "/react-dietCalendar/index.html",
-    "static/css/main.8ee45842.chunk.css.map": "/react-dietCalendar/static/css/main.8ee45842.chunk.css.map",
+    "static/css/main.30227fa3.chunk.css.map": "/react-dietCalendar/static/css/main.30227fa3.chunk.css.map",
     "static/js/2.f82f0022.chunk.js.LICENSE.txt": "/react-dietCalendar/static/js/2.f82f0022.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a6522b3b.js",
     "static/js/2.f82f0022.chunk.js",
-    "static/css/main.8ee45842.chunk.css",
+    "static/css/main.30227fa3.chunk.css",
     "static/js/main.86f55572.chunk.js"
   ]
 }
