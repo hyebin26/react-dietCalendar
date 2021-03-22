@@ -1,5 +1,12 @@
 ### 이번에 한 것
 
+1. add express
+2. proxy
+
+### 해야 될 것
+
+- 우선 웹서버 이해하기
+
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
 

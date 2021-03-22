@@ -29,11 +29,11 @@ const Login = ({ auth }) => {
     naverRef.current.firstChild.click();
   };
 
-  const getNaverToken = useCallback(() => {
+  const getNaverToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
     localStorage.setItem("naver_token", token);
-  }, [location.hash]);
+  };
 
   const onClickNaver = (e) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ const Login = ({ auth }) => {
   useEffect(() => {
     auth.initializeNaverLogin();
     getNaverToken();
-  }, [auth, getNaverToken]);
+  }, [auth]);
 
   useEffect(() => {
     auth.onAuthChange((user) => {
@@ -57,9 +57,9 @@ const Login = ({ auth }) => {
     }
     auth.fetchToken(code).then((res) => {
       localStorage.setItem("kakaoToken", res.id);
-      return goToHome(res.id);
+      // return goToHome(res.id);
     });
-  }, [auth, location.search, goToHome]);
+  }, [auth, location.search]);
 
   useEffect(() => {
     const naverToken = localStorage.getItem("naver_token");
