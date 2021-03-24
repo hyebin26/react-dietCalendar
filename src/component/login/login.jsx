@@ -32,7 +32,10 @@ const Login = ({ auth }) => {
   const getNaverToken = () => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
-    localStorage.setItem("naver_token", token);
+    auth.fetchNaverToken(token).then((userId) => {
+      localStorage.setItem("naverToken", userId);
+      goToHome(userId);
+    });
   };
 
   const onClickNaver = (e) => {
@@ -55,18 +58,14 @@ const Login = ({ auth }) => {
     if (code === null) {
       return false;
     }
-    auth.fetchToken(code).then((res) => {
-      localStorage.setItem("kakaoToken", res.id);
-      // return goToHome(res.id);
-    });
+    auth
+      .fetchToken(code) //
+      .then((res) => {
+        localStorage.setItem("kakaoToken", res);
+        return goToHome(res.id);
+      });
   }, [auth, location.search]);
 
-  useEffect(() => {
-    const naverToken = localStorage.getItem("naver_token");
-    if (naverToken) {
-      auth.fetchNaverToken(naverToken).then((res) => console.log(res)); //cors 때문에 못함 배포하고하기
-    }
-  }, [auth]);
   return (
     <section className={styles.container}>
       <div className={styles.loginCotaniner}>

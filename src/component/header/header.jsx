@@ -12,10 +12,8 @@ const Header = memo(({ auth }) => {
       auth.kakaoLogout();
     } else {
       auth
-        .signOut()
-        .then(() => {
-          history.push("/");
-        })
+        .signOut() //
+        .then(() => history.push("/"))
         .catch((err) => console.log(err));
     }
   }, [auth, history]);
