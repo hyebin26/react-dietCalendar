@@ -1,7 +1,8 @@
 ### 이번에 한 것
 
-1. add express
-2. proxy
+1. add kakao Logout
+2. add naver Logout
+3. cleanup auth.js
 
 ### 해야 될 것
 

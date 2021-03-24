@@ -11,7 +11,12 @@ const Calendar = ({ repository, auth }) => {
   const location = useLocation();
   const formRef = useRef();
   const result = parseInt(location.state.result);
-  const userId = localStorage.getItem("token");
+  const userId = localStorage.getItem("googleUser")
+    ? localStorage.getItem("googleUser")
+    : localStorage.getItem("kakaoUser")
+    ? localStorage.getItem("kakaoUser")
+    : localStorage.getItem("naverUser");
+  console.log(userId);
 
   let countDay = [];
   const today = MakeCalendar.today.getDate();

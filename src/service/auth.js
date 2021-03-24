@@ -4,6 +4,9 @@ const { naver } = window;
 const { Kakao } = window;
 
 class Auth {
+  constructor() {
+    this.url = "http://localhost:8080";
+  }
   googleAuth() {
     const googleAuthProvider = googleProvider;
     return firebaseAuth.signInWithPopup(googleAuthProvider);
@@ -15,13 +18,11 @@ class Auth {
     });
   }
   async fetchToken(code) {
-    return await fetch(`http://localhost:8080/kakaoToken/${code}`) //
+    return await fetch(`${this.url}/kakaoToken/${code}`) //
       .then((result) => result.json());
   }
-  async kakaoLogout() {
-    return await fetch(
-      `https://kauth.kakao.com/oauth/logout?client_id=${process.env.REACT_APP_KAKAO_KEY}&logout_redirect_uri=${process.env.REACT_APP_KAKAO_URL}`
-    );
+  kakaoSignOut() {
+    return `https://kauth.kakao.com/oauth/logout?client_id=${process.env.REACT_APP_KAKAO_KEY}&logout_redirect_uri=${process.env.REACT_APP_KAKAO_URL}`;
   }
   initializeNaverLogin() {
     const naverLogin = new naver.LoginWithNaverId({
@@ -34,12 +35,11 @@ class Auth {
     naverLogin.init();
   }
   async fetchNaverToken(code) {
-    return await fetch(
-      `http://localhost:8080/naverToken/${code}`
-    ).then((result) => result.json());
+    return await fetch(`${this.url}/naverToken/${code}`) //
+      .then((result) => result.json());
   }
 
-  signOut() {
+  googleSignOut() {
     return firebaseAuth.signOut();
   }
   onAuthChange(goToHome) {

@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useRef, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import React, { memo, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import HomeHight from "../home_hight/home_hight";
@@ -14,7 +14,6 @@ const Home = memo(() => {
   const signRef = useRef();
   const resultRef = useRef();
   const history = useHistory();
-  const location = useLocation();
 
   const [height, setHeight] = useState("");
   const [commonWeight, setCommonWeight] = useState();
@@ -73,12 +72,6 @@ const Home = memo(() => {
       state: { result: result },
     });
   };
-
-  useEffect(() => {
-    if (location.state) {
-      localStorage.setItem("token", location.state.userId);
-    }
-  });
 
   return (
     <div className={styles.container}>

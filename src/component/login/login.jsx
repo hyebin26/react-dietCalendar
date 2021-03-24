@@ -18,7 +18,10 @@ const Login = ({ auth }) => {
     [history]
   );
   const clickGoogle = () => {
-    auth.googleAuth().then((res) => goToHome(res.user.uid));
+    auth.googleAuth().then((res) => {
+      localStorage.setItem("googleUser", res.user.uid);
+      goToHome(res.user.uid);
+    });
   };
 
   const clickKakao = (e) => {
@@ -33,8 +36,18 @@ const Login = ({ auth }) => {
     if (!location.hash) return;
     const token = location.hash.split("=")[1].split("&")[0];
     auth.fetchNaverToken(token).then((userId) => {
-      localStorage.setItem("naverToken", userId);
+      localStorage.setItem("naverUser", userId);
       goToHome(userId);
+    });
+  };
+  const getKakaoToken = () => {
+    const code = new URLSearchParams(location.search).get("code");
+    if (code === null) {
+      return false;
+    }
+    auth.fetchToken(code).then((res) => {
+      localStorage.setItem("kakaoUser", res);
+      return goToHome(res.id);
     });
   };
 
@@ -54,17 +67,8 @@ const Login = ({ auth }) => {
   }, [auth, goToHome]);
 
   useEffect(() => {
-    const code = new URLSearchParams(location.search).get("code");
-    if (code === null) {
-      return false;
-    }
-    auth
-      .fetchToken(code) //
-      .then((res) => {
-        localStorage.setItem("kakaoToken", res);
-        return goToHome(res.id);
-      });
-  }, [auth, location.search]);
+    getKakaoToken();
+  }, []);
 
   return (
     <section className={styles.container}>
