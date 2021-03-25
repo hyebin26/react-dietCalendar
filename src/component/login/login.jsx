@@ -5,7 +5,10 @@ import Header from "../header/header";
 
 const Login = ({ auth }) => {
   const history = useHistory();
-
+  const catchHistory = (user) => {
+    localStorage.setItem("user", user);
+    history.push("/Home");
+  };
   const clickGoogle = () => {
     auth
       .googleAuth()
@@ -15,12 +18,18 @@ const Login = ({ auth }) => {
       })
       .catch((err) => console.log(err));
   };
-  const clickEmail = () => {
-    auth.emailAuth().then((res) => console.log(res));
+  const clickGithub = () => {
+    auth
+      .githubAuth(catchHistory)
+      .then((res) => {
+        localStorage.setItem("user", res.user.uid);
+        history.push("/Home");
+      })
+      .catch((err) => console.log(err));
   };
   const clickFacebook = () => {
     auth
-      .facebookAuth() //
+      .facebookAuth(catchHistory) //
       .then((res) => {
         localStorage.setItem("user", res.user.uid);
         history.push("/Home");
@@ -38,8 +47,8 @@ const Login = ({ auth }) => {
           <button onClick={clickGoogle} className={styles.btn}>
             Google
           </button>
-          <button className={styles.btn} onClick={clickEmail}>
-            E-mail
+          <button className={styles.btn} onClick={clickGithub}>
+            Github
           </button>
           <button className={styles.btn} onClick={clickFacebook}>
             Facebook

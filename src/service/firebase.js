@@ -15,3 +15,4 @@ export const firebaseAuth = firebase.auth();
 export const firebaseDatabase = firebase.database();
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+export const githubProvider = new firebase.auth.GithubAuthProvider();

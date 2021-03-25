@@ -1,35 +1,65 @@
-import { googleProvider, firebaseAuth, facebookProvider } from "./firebase";
+import {
+  googleProvider,
+  firebaseAuth,
+  facebookProvider,
+  githubProvider,
+} from "./firebase";
 
 class Auth {
   googleAuth() {
-    const googleAuthProvider = googleProvider;
-    return firebaseAuth.signInWithPopup(googleAuthProvider);
+    return firebaseAuth
+      .signInWithPopup(googleProvider)
+      .catch((err) => alert("다른계정을 이용해주세요"));
   }
-  facebookAuth() {
+  facebookAuth(catchHistory) {
     return firebaseAuth
       .signInWithPopup(facebookProvider)
-      .catch((err) => console.log(err));
-    // .catch(function (error) {
-    //   if (error.code === "auth/account-exists-with-different-credential") {
-    //     firebaseAuth
-    //       .fetchSignInMethodsForEmail(error.email)
-    //       .then(function (providers) {
-    //         if (providers[0] === "google.com") {
-    //           firebaseAuth
-    //             .signInWithRedirect(googleProvider)
-    //             .then(function (result) {
-    //               firebaseAuth
-    //                 .signInWithCredential(result.credential)
-    //                 .then((user) => {
-    //                   user.linkWithCredential(error.credential);
-    //                 });
-    //             });
-    //         }
-    //       });
-    //   } else {
-    //     alert("에러!");
-    //   }
-    // });
+      .catch(function (error) {
+        if (error.code === "auth/account-exists-with-different-credential") {
+          firebaseAuth
+            .fetchSignInMethodsForEmail(error.email)
+            .then(function (providers) {
+              if (providers[0] === "google.com") {
+                firebaseAuth
+                  .signInWithPopup(googleProvider)
+                  .then(function (result) {
+                    firebaseAuth
+                      .signInWithCredential(result.credential)
+                      .then((user) => {
+                        catchHistory(user.user.uid);
+                      });
+                  });
+              }
+            });
+        } else {
+          alert("다른 계정을 이용해주세요");
+        }
+      });
+  }
+  githubAuth(catchHistory) {
+    return firebaseAuth
+      .signInWithPopup(githubProvider) //
+      .catch(function (error) {
+        if (error.code === "auth/account-exists-with-different-credential") {
+          firebaseAuth
+            .fetchSignInMethodsForEmail(error.email)
+            .then(function (providers) {
+              if (providers[0] === "google.com") {
+                firebaseAuth
+                  .signInWithPopup(googleProvider)
+                  .then(function (result) {
+                    firebaseAuth
+                      .signInWithCredential(result.credential)
+                      .then((user) => {
+                        catchHistory(user.user.uid);
+                      });
+                  });
+              }
+            });
+        } else {
+          alert("다른 계정을 이용해주세요");
+        }
+      });
   }
 
   googleSignOut() {
