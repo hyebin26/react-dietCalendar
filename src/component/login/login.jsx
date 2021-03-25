@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styles from "./login.module.css";
 import { useHistory } from "react-router-dom";
 import Header from "../header/header";
@@ -6,20 +6,25 @@ import Header from "../header/header";
 const Login = ({ auth }) => {
   const history = useHistory();
 
-  const goToHome = useCallback(
-    (userId) => {
-      history.push({
-        pathname: "/Home",
-        state: { userId: userId },
-      });
-    },
-    [history]
-  );
   const clickGoogle = () => {
-    auth.googleAuth().then((res) => {
-      localStorage.setItem("googleUser", res.user.uid);
-      goToHome(res.user.uid);
-    });
+    auth
+      .googleAuth()
+      .then((res) => {
+        localStorage.setItem("user", res.user.uid);
+        history.push("/Home");
+      })
+      .catch((err) => console.log(err));
+  };
+  const clickEmail = () => {
+    auth.emailAuth().then((res) => console.log(res));
+  };
+  const clickFacebook = () => {
+    auth
+      .facebookAuth() //
+      .then((res) => {
+        localStorage.setItem("user", res.user.uid);
+        history.push("/Home");
+      });
   };
 
   return (
@@ -32,6 +37,12 @@ const Login = ({ auth }) => {
         <div className={styles.btnBox}>
           <button onClick={clickGoogle} className={styles.btn}>
             Google
+          </button>
+          <button className={styles.btn} onClick={clickEmail}>
+            E-mail
+          </button>
+          <button className={styles.btn} onClick={clickFacebook}>
+            Facebook
           </button>
         </div>
       </div>

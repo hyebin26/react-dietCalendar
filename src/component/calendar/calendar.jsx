@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import ClickDate from "../clickDate/clickDate";
 import Footer from "../footer/footer";
 import Header from "../header/header";
@@ -9,13 +9,10 @@ import MakeCalendar from "../../common/calendar";
 
 const Calendar = ({ repository, auth }) => {
   const location = useLocation();
+  const history = useHistory();
   const formRef = useRef();
   const result = parseInt(location.state.result);
-  const userId = localStorage.getItem("googleUser")
-    ? localStorage.getItem("googleUser")
-    : localStorage.getItem("kakaoUser")
-    ? localStorage.getItem("kakaoUser")
-    : localStorage.getItem("naverUser");
+  const currentUser = localStorage.getItem("user");
 
   let countDay = [];
   const today = MakeCalendar.today.getDate();
@@ -63,7 +60,7 @@ const Calendar = ({ repository, auth }) => {
     setLunchValue(0);
     setDinnerValue(0);
 
-    repository.saveData(userId, concatItem);
+    repository.saveData(currentUser, concatItem);
   };
   const onChangeBreakfast = (cal) => {
     setBreakfastValue(parseInt(cal));
@@ -130,8 +127,11 @@ const Calendar = ({ repository, auth }) => {
   }, [breakfastValue, lunchValue, dinnerValue]);
 
   useEffect(() => {
-    repository.loadUser(userId, saveUser);
-  }, [repository, userId]);
+    repository.loadUser(currentUser, saveUser);
+  }, [repository, currentUser]);
+  useEffect(() => {
+    !currentUser && history.replace("/");
+  });
 
   return (
     <section className={styles.container}>

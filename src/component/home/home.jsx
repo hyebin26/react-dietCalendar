@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Footer from "../footer/footer";
 import Header from "../header/header";
@@ -9,6 +9,7 @@ import HomeWeight from "../home_weight/home_weight";
 import styles from "./home.module.css";
 
 const Home = memo(() => {
+  const currentUser = localStorage.getItem("user");
   const heightRef = useRef();
   const weightRef = useRef();
   const signRef = useRef();
@@ -73,6 +74,9 @@ const Home = memo(() => {
     });
   };
 
+  useEffect(() => {
+    !currentUser && history.replace("/");
+  }, [currentUser]);
   return (
     <div className={styles.container}>
       <div className={styles.box}>

@@ -1,8 +1,6 @@
 ### 이번에 한 것
 
-1. naver, kakao 로그인 삭제
-
-- 이유 : firebase realtime database로 데이터 베이스를 사용하려고 했으나 naver, kakao는 테스트용으로는 사용가능하나 배포할 때는 사용이 불가능하다.
+1. Facebook 이메일 추가
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
