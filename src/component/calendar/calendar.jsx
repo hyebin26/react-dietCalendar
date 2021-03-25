@@ -16,7 +16,6 @@ const Calendar = ({ repository, auth }) => {
     : localStorage.getItem("kakaoUser")
     ? localStorage.getItem("kakaoUser")
     : localStorage.getItem("naverUser");
-  console.log(userId);
 
   let countDay = [];
   const today = MakeCalendar.today.getDate();

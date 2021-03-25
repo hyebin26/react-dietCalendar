@@ -1,12 +1,8 @@
 ### 이번에 한 것
 
-1. add kakao Logout
-2. add naver Logout
-3. cleanup auth.js
+1. naver, kakao 로그인 삭제
 
-### 해야 될 것
-
-- 우선 웹서버 이해하기
+- 이유 : firebase realtime database로 데이터 베이스를 사용하려고 했으나 naver, kakao는 테스트용으로는 사용가능하나 배포할 때는 사용이 불가능하다.
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
