@@ -1,7 +1,6 @@
 ### 이번에 한 것
 
-1. 데이터베이스 보안상의 룰 변경 
-2. respositry.js 리팩토링
+1. 앱배포
 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
