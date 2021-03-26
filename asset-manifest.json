@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-dietCalendar/static/css/main.30227fa3.chunk.css",
-    "main.js": "/react-dietCalendar/static/js/main.86f55572.chunk.js",
-    "main.js.map": "/react-dietCalendar/static/js/main.86f55572.chunk.js.map",
-    "runtime-main.js": "/react-dietCalendar/static/js/runtime-main.a6522b3b.js",
-    "runtime-main.js.map": "/react-dietCalendar/static/js/runtime-main.a6522b3b.js.map",
-    "static/js/2.f82f0022.chunk.js": "/react-dietCalendar/static/js/2.f82f0022.chunk.js",
-    "static/js/2.f82f0022.chunk.js.map": "/react-dietCalendar/static/js/2.f82f0022.chunk.js.map",
-    "index.html": "/react-dietCalendar/index.html",
-    "static/css/main.30227fa3.chunk.css.map": "/react-dietCalendar/static/css/main.30227fa3.chunk.css.map",
-    "static/js/2.f82f0022.chunk.js.LICENSE.txt": "/react-dietCalendar/static/js/2.f82f0022.chunk.js.LICENSE.txt"
+    "main.css": "//hyebin26.github.io/react-dietCalendar/static/css/main.89945708.chunk.css",
+    "main.js": "//hyebin26.github.io/react-dietCalendar/static/js/main.e4a57799.chunk.js",
+    "main.js.map": "//hyebin26.github.io/react-dietCalendar/static/js/main.e4a57799.chunk.js.map",
+    "runtime-main.js": "//hyebin26.github.io/react-dietCalendar/static/js/runtime-main.8faf691b.js",
+    "runtime-main.js.map": "//hyebin26.github.io/react-dietCalendar/static/js/runtime-main.8faf691b.js.map",
+    "static/js/2.c326dcdf.chunk.js": "//hyebin26.github.io/react-dietCalendar/static/js/2.c326dcdf.chunk.js",
+    "static/js/2.c326dcdf.chunk.js.map": "//hyebin26.github.io/react-dietCalendar/static/js/2.c326dcdf.chunk.js.map",
+    "index.html": "//hyebin26.github.io/react-dietCalendar/index.html",
+    "static/css/main.89945708.chunk.css.map": "//hyebin26.github.io/react-dietCalendar/static/css/main.89945708.chunk.css.map",
+    "static/js/2.c326dcdf.chunk.js.LICENSE.txt": "//hyebin26.github.io/react-dietCalendar/static/js/2.c326dcdf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a6522b3b.js",
-    "static/js/2.f82f0022.chunk.js",
-    "static/css/main.30227fa3.chunk.css",
-    "static/js/main.86f55572.chunk.js"
+    "static/js/runtime-main.8faf691b.js",
+    "static/js/2.c326dcdf.chunk.js",
+    "static/css/main.89945708.chunk.css",
+    "static/js/main.e4a57799.chunk.js"
   ]
 }
