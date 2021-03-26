@@ -69,14 +69,14 @@ const Home = memo(() => {
       return false;
     }
     history.push({
-      pathname: "/Calendar",
+      pathname: `/Calendar/${currentUser}`,
       state: { result: result },
     });
   };
 
   useEffect(() => {
     !currentUser && history.replace("/");
-  }, [currentUser]);
+  }, [currentUser, history]);
   return (
     <div className={styles.container}>
       <div className={styles.box}>

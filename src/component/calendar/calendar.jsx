@@ -131,7 +131,7 @@ const Calendar = ({ repository, auth }) => {
   }, [repository, currentUser]);
   useEffect(() => {
     !currentUser && history.replace("/");
-  });
+  }, [currentUser, history]);
 
   return (
     <section className={styles.container}>

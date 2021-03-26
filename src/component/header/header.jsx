@@ -8,7 +8,7 @@ const Header = memo(({ auth }) => {
   const history = useHistory();
   const onClickSignOut = () => {
     localStorage.removeItem("googleUser");
-    auth.googleSignOut();
+    auth.signOut();
     history.replace("/");
   };
   return (
