@@ -8,7 +8,7 @@ class Repository {
     });
   }
   async saveData(userId, date) {
-    await firebaseDatabase.ref(`date/${userId}`).update(date);
+    await firebaseDatabase.ref(`date/${userId}`).set(date);
   }
 }
 
