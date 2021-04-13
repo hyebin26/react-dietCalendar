@@ -177,6 +177,7 @@ export default Repository;
 4. 리렌더링을 방지하기 위해서 memo와 useCallback을 사용하려고 했으나 사용하기 위해서는 작은 단위로 컴포넌트가 구성이 되어야 편리하고 사용하는 것도 쉽지 않다.
  ## :link:링크
  <a href="https://hyebin26.github.io/react-dietCalendar/">https://hyebin26.github.io/react-dietCalendar/</a>
+ 
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
 
