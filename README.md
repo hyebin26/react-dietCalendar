@@ -176,11 +176,11 @@ export default Repository;
 3. Access_token과 Refresh_token에 대해서 이해하게 되었습니다. 로그인을 성공하면 토큰을 받습니다.acess_token은 로그인을 할 때 받는 토큰으로 이 토큰을 이용해서 로그인 정보를 받을 수 있습니다. Refresh_token은 유효기간이 access_token보다 길고 access_token이 만료되면 Refresh_token을 이용해 access_token을 재발급 받는 것입니다. 기존의 Access_token을 통한 인증 방싱긔 문제는 만일 제3자에게 토큰을 탈취당할 경우에 보안이 약하다는 것이 단점이었습니다. 하지만 두개의 토큰을 사용하면 안전하게 토큰을 관리할 수 있습니다.
 4. 리렌더링을 방지하기 위해서 memo와 useCallback을 사용하려고 했으나 사용하기 위해서는 작은 단위로 컴포넌트가 구성이 되어야 편리하고 사용하는 것도 쉽지 않다.
  ## :link:링크
- <a href="https://hyebin26.github.io/react-dietCalendar/">https://hyebin26.github.io/react-dietCalendar/</a>
+링크: <a href="https://hyebin26.github.io/react-dietCalendar/">https://hyebin26.github.io/react-dietCalendar/</a>
  
 일러스트레이션:
 <a href='https://www.freepik.com/vectors/sports'>Sports vector created by vectorjuice -www.freepik.com</a>
 
 참고:
-링크: <a href='https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design'>https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design</a>
+<a href='https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design'>https://www.behance.net/gallery/101376559/Signup-Login-Screen-UI-Design</a>
 <a href='https://dribbble.com/shots/8110628-UI-Design-for-Calendar-Task-Manager/attachments/551289?mode=media'>https://dribbble.com/shots/8110628-UI-Design-for-Calendar-Task-Manager/attachments/551289?mode=media</a>
