@@ -172,8 +172,8 @@ export default Repository;
 ## :thumbsup:느낀점
 1. 상태 관리 프레임워크의 필요성 : 상태를 부모컴포넌트에서 관리하는 것은 복잡하고, 수정하는 것도 힘들어집니다. 그러므로 상태관리 프레임워크에 익숙해져야 될 것 같습니다.
 2. Postman을 사용하면 너무 편리하게 fetch를 할 수 있습니다.
-3. Access_token과 Refresh_token에 대해서 이해하게 되었습니다. 로그인을 성공하면 토큰을 받습니다.acess_token은 로그인을 할 때 받는 토큰으로 이 토큰을 이용해서 로그인 정보를 받을 수 있습니다. Refresh_token은 유효기간이 access_token보다 길고 access_token이 만료되면 Refresh_token을 이용해 access_token을 재발급 받는 것입니다. 기존의 Access_token을 통한 인증 방싱긔 문제는 만일 제3자에게 토큰을 탈취당할 경우에 보안이 약하다는 것이 단점이었습니다. 하지만 두개의 토큰을 사용하면 안전하게 토큰을 관리할 수 있습니다.
-4. 리렌더링을 방지하기 위해서 memo와 useCallback을 사용하려고 했으나 사용하기 위해서는 작은 단위로 컴포넌트가 구성이 되어야 편리하고 사용하는 것도 쉽지 않다.
+3. Access_token과 Refresh_token에 대해서 이해하게 되었습니다. 우선 웹에서 로그인을 성공하면 토큰을 받습니다. acess_token은 로그인을 할 때 받는 토큰으로 이 토큰을 이용해서 로그인 정보를 받을 수 있습니다. Refresh_token은 유효기간이 access_token보다 길고 access_token이 만료되면 Refresh_token을 이용해 access_token을 재발급 받는 것입니다. 기존의 Access_token을 통한 인증 방식의 문제는 만일 제3자에게 토큰을 탈취당할 경우에 보안이 약하다는 것이 단점이었습니다. 하지만 두개의 토큰을 사용하면 안전하게 토큰을 관리할 수 있습니다.
+4. 리렌더링을 방지하기 위해서 memo와 useCallback을 사용하려고 노력했으나 사용하기 위해서는 작은 단위로 컴포넌트가 구성이 되어 있어야 하고, 사용할 떄 불편한 점이 많았습니다.
  ## :link:링크
 링크: <a href="https://hyebin26.github.io/react-dietCalendar/">https://hyebin26.github.io/react-dietCalendar/</a>
  
