@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./app.jsx";
+import App from "./App";
 import Repository from "./service/repository";
 import Auth from "./service/auth";
 

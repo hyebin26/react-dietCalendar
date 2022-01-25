@@ -7,10 +7,12 @@ import {
 
 class Auth {
   googleAuth() {
-    return firebaseAuth.signInWithPopup(googleProvider).catch((err) => {
-      console.log(err);
-      return alert("다른계정을 이용해주세요");
-    });
+    return firebaseAuth
+      .signInWithPopup(googleProvider) // 
+      .catch((err) => {
+        console.log(err);
+        return alert("다른계정을 이용해주세요");
+      });
   }
   facebookAuth(catchHistory) {
     return firebaseAuth

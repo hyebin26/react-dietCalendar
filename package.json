@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test --watchAll"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +46,15 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://https://hyebin26.github.io/react-dietCalendar"
+  "description": "- 리액트로 구현한 다이어트 캘린더 입니다. 이 프로젝트는 다이어트를 할 때 자신의 신체에 맞게 칼로리를 정하고 날마다 기록하고 확인하고 싶어서 만들게 되었습니다.\r - 로그인은 firebase로 구글,깃허브, 페이스북을 구현하였고 Database는 firebase에 realtime DB를 사용했습니다.\r - 달력 부분은 API를 사용하지 않고 직접 구현하고 유동적으로 날짜가 변하도록 구현하였습니다.\r ## :bell:사용한 기술\r - React(Create React App)\r - firebase login\r - firebase realtime DB\r - gh-pages\r - CSS module\r ## :camera:주요 기능\r 1. 로그인 \r ```jsx\r  googleAuth() {\r     return firebaseAuth.signInWithPopup(googleProvider).catch((err) => {\r       console.log(err);\r       return alert(\"다른계정을 이용해주세요\");\r     });\r   }\r   githubAuth(catchHistory) {\r     return firebaseAuth\r       .signInWithPopup(githubProvider).catch((err)=>{\r          ...\r       } //\r   facebookAuth(catchHistory) {\r     return firebaseAuth\r       .signInWithPopup(facebookProvider).catch((err)=>{\r          ...\r       } //\r   }     \r ```\r 2. 권장 칼로리 측정하기\r ``` jsx\r const Home = memo(() => {\r   ...\r   ...\r   const handleHeight = (e) => {\r     if (e.target.value === \"\") {\r       setHeight(\"\");\r       setCommonWeight();\r       return (heightRef.current.innerText = \"표준 체중은 0kg 입니다.\");\r     }\r     heightRef.current.innerText = `표준 체중은 ${Math.round(\r       (e.target.value - 100) * 0.9\r     )} 입니다.`;\r     setCommonWeight((e.target.value - 100) * 0.9);\r     setHeight(e.target.value);\r   };\r    return (\r     <div className={styles.container}>\r       <div className={styles.box}>\r         <Header />\r         <form className={styles.itemForm}>\r           <h3 className={styles.title}>하루 권장 칼로리 계산하기</h3>\r           <HomeHight\r             height={height}\r             handleHeight={handleHeight}\r             heightRef={heightRef}\r           />\r           <HomeWeight\r             weight={weight}\r             handleWeight={handleWeight}\r             weightRef={weightRef}\r           />\r           <HomeSign sign={sign} handleSign={handleSign} signRef={signRef} />\r           <HomeResult\r             result={result}\r             handleResult={handleResult}\r             resultRef={resultRef}\r           />\r           <button className={styles.btn} onClick={clickSubmit}>\r             제출\r           </button>\r         </form>\r         <Footer />\r       </div>\r     </div>\r   );\r });\r ```\r 3. 달력만들기 \r ``` jsx\r const MakeCalendar = {\r   monList: [\r     \"January\",\r     \"February\",\r     \"March\",\r     \"April\",\r     \"May\",\r     \"June\",\r     \"July\",\r     \"August\",\r     \"September\",\r     \"October\",\r     \"November\",\r     \"December\",\r   ],\r   dayList: [\r     \"Sunday\",\r     \"Monday\",\r     \"Tuesday\",\r     \"Wednesday\",\r     \"Thursday\",\r     \"Friday\",\r     \"Saturday\",\r   ],\r   today: new Date(),\r   monForChange: new Date().getMonth(),\r   getFirstDay: (yy, mm) => new Date(yy, mm, 1),\r   getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),\r   nextMonth: function () {\r     let d = new Date();\r     d.setDate(1);\r     d.setMonth(++this.monForChange);\r     return d;\r   },\r   prevMonth: function () {\r     let d = new Date();\r     d.setDate(1);\r     d.setMonth(--this.monForChange);\r     return d;\r   },\r };",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyebin26/react-dietCalendar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyebin26/react-dietCalendar/issues"
+  }
 }
