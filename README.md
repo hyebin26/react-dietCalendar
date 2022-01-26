@@ -4,9 +4,6 @@
 2. gitflow
 3. test코드
 4. 하는 것 보고 cypress로 E2E테스트까지
-<<<<<<< HEAD
-5. gitFlow test#2
-=======
 5. gitFlow test
 6. Git Pull Request Test
->>>>>>> develop
+7. PR Test#6
